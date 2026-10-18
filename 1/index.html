@@ -17,6 +17,24 @@
   }
   h1 { font-size: 26px; line-height: 1.35; margin: 0 0 6px; font-weight: 700; }
   p  { font-size: 17px; margin: 0 0 22px; }
+  .video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 0 0 10px;
+    background: #000;
+    border-radius: 10px;
+  }
+  .video iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .watch { font-size: 15px; margin: 0 0 22px; }
   .btn {
     display: block;
     width: 100%;
@@ -37,7 +55,18 @@
 <h1>#1 瞒天过海 · Hide it from heaven, cross the sea</h1>
 <p>免費下載 · Free download</p>
 
-<a class="btn" href="boyi-01-free-character-cards.pdf" download>下載 PDF（10 頁）· Download PDF</a>
+<div class="video">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/hRMQLKflLd4"
+    title="三十六计 第1计 瞒天过海 · The 36 Stratagems #1"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+    allowfullscreen></iframe>
+</div>
+<p class="watch"><a href="https://www.youtube.com/watch?v=hRMQLKflLd4">Watch on YouTube</a></p>
+
+<a class="btn" href="boyi-01-free-character-cards.pdf" download>下载 PDF · Download PDF</a>
 
 <p class="note">Free to share. Please keep the BÓYÌ 博弈 credit.</p>
 </body>
