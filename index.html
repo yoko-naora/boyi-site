@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>博弈 Bóyì · The 36 Stratagems with Yoko</title>
+<meta name="description" content="Chinese kids learn 36 stratagems. Now you can too. One stratagem at a time: the story, the video, and a free one-page PDF.">
+<style>
+/* ============ 字体（取现成模板字体，不新做） ============ */
+@font-face{font-family:'NotoSerifSC';src:url('字体/NotoSerifSC[wght].ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:'NotoSerif';src:url('字体/NotoSerif[wdth,wght].ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Allura';src:url('字体/Allura-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Oswald';src:url('字体/Oswald[wght].ttf') format('truetype');font-weight:200 700;font-display:swap}
+
+/* ============ 颜色：取自 业务/boyi/模板/视频/开场页-图解页/参数.json ============ */
+:root{
+  --paper:#f6efdf;      /* 米白宣纸 */
+  --paper-2:#fbf5e8;
+  --ink:#22344c;        /* 墨蓝 */
+  --red:#9e3328;        /* 朱红：只用于按钮和关键字 */
+  --grey:#8a8f98;       /* 淡墨灰 */
+  --deep:#1B2638;       /* 人物廊深墨蓝（任务卡指定） */
+  --red-lit:#c8503c;    /* 深色块上的朱红（同色提亮，深底上才看得清） */
+  --line:rgba(34,52,76,.16);
+  --line-2:rgba(34,52,76,.09);
+  --serif:'NotoSerif','NotoSerifSC',Georgia,serif;
+  --sc:'NotoSerifSC','NotoSerif',serif;
+  --sans:'Oswald','Helvetica Neue',Arial,sans-serif;
+  --body:'Helvetica Neue','Segoe UI','Ubuntu Sans','Liberation Sans',Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 56px}
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.30em;text-transform:uppercase;color:var(--red)}
+.kicker.grey{color:var(--grey)}
+.meta{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.20em;text-transform:uppercase;color:var(--grey)}
+
+/* 按钮：全站只有朱红描边和朱红实心两种 */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;
+  font-family:var(--sans);font-size:12.5px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;border:1px solid rgba(34,52,76,.28)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fdf7ea}
+.btn.ghost{color:var(--ink)}
+.btn .arw{font-family:var(--serif);font-size:15px;letter-spacing:0}
+.link{font-family:var(--sans);font-size:12px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid rgba(34,52,76,.35);padding-bottom:4px}
+
+/* 汉字 + 拼音逐字对齐 */
+.pz{display:inline-flex;align-items:flex-start}
+.pz .ch{display:flex;flex-direction:column;align-items:center}
+.pz .ch .h{font-family:var(--sc);font-weight:500;line-height:1;letter-spacing:.02em}
+.pz .ch .p{font-family:var(--serif);font-size:.24em;letter-spacing:.06em;color:var(--grey);margin-top:.36em;line-height:1}
+
+/* ============ 1 第一屏 ============ */
+.nav{border-bottom:1px solid var(--line)}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0}
+.wordmark{display:flex;align-items:baseline;gap:12px}
+.wordmark .hz{font-family:var(--sc);font-size:24px;font-weight:600;letter-spacing:.10em}
+.wordmark .lat{font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.34em;text-transform:uppercase;color:var(--grey)}
+.nav ul{display:flex;align-items:center;gap:32px;margin:0;padding:0;list-style:none}
+.nav ul a{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.20em;text-transform:uppercase;color:var(--ink)}
+.nav .count{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.16em;color:var(--grey);white-space:nowrap}
+.nav .count b{color:var(--red);font-weight:500}
+
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .ink{position:absolute;inset:0;background:url('图/水墨远山.webp') center/cover no-repeat;opacity:.5;mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 76% 48%,#000 12%,transparent 72%);
+  mask-image:radial-gradient(ellipse 60% 70% at 76% 48%,#000 12%,transparent 72%)}
+.hero .inner{position:relative;padding:104px 0 112px}
+.hero .kicker{display:block;margin-bottom:34px}
+.hero h1{margin:0 0 30px;font-weight:400;font-size:86px;line-height:1.06;letter-spacing:-.015em;max-width:960px}
+.hero h1 em{font-style:italic}
+.hero .lede{margin:0 0 44px;font-family:var(--body);font-size:18.5px;line-height:1.7;color:rgba(34,52,76,.74);max-width:520px}
+.hero .acts{display:flex;align-items:center;gap:28px}
+
+/* ============ 2 最新一计 ============ */
+.latest{padding:88px 0 96px;border-bottom:1px solid var(--line)}
+.seclabel{display:flex;align-items:center;gap:16px;margin-bottom:44px}
+.seclabel .no{font-family:var(--sans);font-size:11.5px;letter-spacing:.20em;color:var(--red)}
+.seclabel .ln{flex:1;height:1px;background:var(--line)}
+.latest .grid{display:grid;grid-template-columns:1fr 1.06fr;gap:72px;align-items:center}
+.latest h2{margin:0 0 14px}
+.latest h2 .pz{--hz:64px}
+.latest h2 .pz .ch .h{font-size:var(--hz)}
+.latest h2 .pz .ch .p{font-size:calc(var(--hz) / 3)}
+.latest .en-name{font-family:var(--serif);font-style:italic;font-size:26px;color:rgba(34,52,76,.82);margin:0 0 26px}
+.latest .one{margin:0 0 34px;font-family:var(--body);font-size:16.5px;line-height:1.75;color:rgba(34,52,76,.74);max-width:440px}
+.latest .acts{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.cover{position:relative;margin:0}
+.cover .pic{border:1px solid var(--line)}
+.cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.cover .cap{margin:10px 0 0;font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:rgba(34,52,76,.55)}
+
+/* ============ 3 人物大图廊（全站唯一深色块） ============ */
+.people{position:relative;background:var(--deep);color:var(--paper);height:100vh;min-height:640px;overflow:hidden}
+
+/* 顶部大标题：和第一屏标题同级，favorite 朱红斜体 */
+.people .head{position:absolute;left:6vw;top:5.2vh;z-index:4;max-width:min(780px,66vw)}
+.people .head h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.4vw,78px);line-height:1.02;letter-spacing:-.015em}
+.people .head h2 em{font-style:italic;color:var(--red-lit)}
+.people .head .zh{margin:14px 0 0;font-family:var(--sc);font-size:17px;letter-spacing:.06em;color:rgba(246,239,223,.66)}
+
+.stage{position:absolute;inset:0}
+.shots{position:absolute;inset:0}
+.shot{position:absolute;inset:0;width:100vw;height:100%;object-fit:cover;
+  object-position:var(--pos,50% 50%);
+  transform:translateX(var(--dx,0)) scale(var(--zoom,1)) scaleX(var(--sx,1));
+  opacity:0;transition:opacity .6s ease;will-change:opacity}
+.shot.on{opacity:1}
+.veil{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,rgba(27,38,56,.92) 0%,rgba(27,38,56,.6) 35%,transparent 60%)}
+.overlay{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;
+  padding:calc(5.2vh + 140px) 6vw 5.6vh}
+
+.names{list-style:none;margin:auto 0;padding:0;max-width:380px;width:100%}
+.names button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;background:none;border:0;
+  border-left:2px solid transparent;padding:9px 0 9px 16px;cursor:pointer;text-align:left;
+  color:rgba(246,239,223,.5);transition:color .25s ease}
+.names button:hover{color:rgba(246,239,223,.8)}
+.names button[aria-selected="true"]{color:#fff;border-left-color:var(--red-lit)}
+.names .zh{font-family:var(--sc);font-size:28px;font-weight:500;line-height:1.1;letter-spacing:.06em}
+.names .en{font-family:var(--sans);font-size:12px;font-weight:300;letter-spacing:.24em;text-transform:uppercase}
+
+.info{max-width:520px;transition:opacity .3s ease}
+.info.fade{opacity:0}
+.info .nm{font-family:var(--sc);font-size:48px;line-height:1.05;letter-spacing:.04em}
+.info .nm .en{font-family:var(--serif);font-style:italic;font-size:20px;letter-spacing:0;color:rgba(246,239,223,.62);margin-left:14px}
+.info .bio{margin:12px 0 0;font-family:var(--body);font-size:15.5px;line-height:1.62;color:rgba(246,239,223,.9);max-width:460px}
+.info .biozh{margin:8px 0 0;font-family:var(--sc);font-size:13px;line-height:1.7;color:rgba(246,239,223,.55);max-width:460px}
+.info .appear{display:inline-block;margin-top:14px;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:#e8b9a8;border-bottom:1px solid rgba(232,185,168,.45);padding-bottom:4px}
+
+/* ============ 4 36 计进度条（整段 ≤ 220px） ============ */
+.bar{padding:48px 0 52px;border-bottom:1px solid var(--line)}
+.track{display:flex;gap:6px}
+.sq{position:relative;width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.02em}
+.sq.live{background:var(--ink);color:var(--paper)}
+.sq.todo{border:1px solid rgba(138,143,152,.5);color:rgba(138,143,152,.55)}
+.sq.live::after{content:attr(data-name);position:absolute;left:50%;bottom:calc(100% + 9px);transform:translateX(-50%);
+  white-space:nowrap;background:var(--paper-2);border:1px solid rgba(34,52,76,.22);padding:5px 9px;
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  opacity:0;pointer-events:none;transition:opacity .18s ease}
+.sq.live:hover::after{opacity:1}
+.legend{margin-top:14px;font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+
+/* ============ 5 关于 Yoko ============ */
+.about{padding:96px 0 100px;border-bottom:1px solid var(--line)}
+.about .grid{display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
+.about .avatar{margin:0}
+.about .avatar img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:saturate(.92)}
+.about .sig{font-family:'Allura',cursive;font-size:76px;line-height:.9;margin:0 0 8px}
+.about .sigline{font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:.02em;color:var(--red);margin:0 0 34px}
+.about h2{margin:0 0 26px;font-weight:400;font-size:40px;line-height:1.2}
+.about .q{margin:0 0 22px;font-family:var(--body);font-size:17px;line-height:1.75;color:rgba(34,52,76,.82);max-width:620px}
+.about .q .zh{display:block;margin-top:6px;font-family:var(--sc);font-size:14px;line-height:1.8;color:var(--grey)}
+.about .kicker{display:block;margin-bottom:22px}
+
+/* ============ 6 页脚 ============ */
+.foot{padding:34px 0 44px}
+.foot .row{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.foot .yt{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.foot .yt .dot{width:6px;height:6px;background:var(--red);border-radius:50%}
+.foot .cop{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.foot .tag{font-family:'Allura',cursive;font-size:30px;color:var(--ink)}
+.foot .tagsub{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--red);letter-spacing:.02em}
+
+/* ============ 手机 390 ============ */
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .nav .row{padding:18px 16px}
+  .wordmark .hz{font-size:20px}
+  .wordmark .lat{font-size:9px;letter-spacing:.26em}
+  .nav ul{gap:16px}
+  .nav ul li.hide{display:none}
+  .nav ul a{font-size:10px;letter-spacing:.12em}
+  .nav .count{display:none}
+
+  .hero .inner{padding:56px 16px 60px}
+  .hero .kicker{margin-bottom:22px}
+  .hero h1{font-size:38px;line-height:1.14;margin-bottom:22px}
+  .hero .lede{font-size:16px;margin-bottom:30px}
+  .hero .acts{flex-direction:column;align-items:stretch;gap:14px}
+  .hero .acts .link{text-align:center;border:0;padding:2px}
+  .hero .ink{opacity:.42;-webkit-mask-image:radial-gradient(ellipse 90% 40% at 50% 88%,#000 10%,transparent 78%);mask-image:radial-gradient(ellipse 90% 40% at 50% 88%,#000 10%,transparent 78%)}
+
+  .latest{padding:52px 0 58px}
+  .seclabel{margin-bottom:26px;gap:12px}
+  .latest .grid{grid-template-columns:1fr;gap:30px}
+  .latest h2 .pz{--hz:42px}
+  .latest .en-name{font-size:19px;margin-bottom:18px}
+  .latest .one{font-size:15.5px;margin-bottom:24px}
+  .latest .acts{gap:10px}
+  .latest .acts .btn{flex:1 1 46%}
+  .cover .cap{font-size:9px;letter-spacing:.14em;margin-top:8px}
+
+  /* 人物廊：图在上 60vh，名单两列，介绍在名单下面 */
+  .people{height:auto;min-height:0;display:flex;flex-direction:column}
+  .people .head{position:static;max-width:none;padding:26px 16px 18px;order:0}
+  .people .head h2{font-size:34px}
+  .people .head .zh{font-size:14px;margin-top:9px}
+  .stage{position:static;display:flex;flex-direction:column;height:auto;order:1}
+  .shots{position:relative;inset:auto;width:100vw;height:60vh;flex:none}
+  .shot{width:100%;height:100%;object-position:var(--pos-m,var(--pos,50% 50%));
+    transform:scaleX(var(--sx,1))}   /* 手机只保留镜像，不用放大/横移 */
+  .veil{background:linear-gradient(180deg,rgba(27,38,56,0) 62%,rgba(27,38,56,.62) 100%)}
+  .overlay{position:static;inset:auto;padding:20px 16px 34px;display:block}
+  .names{display:grid;grid-template-columns:1fr 1fr;max-width:none;width:auto;margin:0 0 22px;
+    border-top:1px solid rgba(246,239,223,.16)}
+  .names li:nth-child(odd){border-right:1px solid rgba(246,239,223,.12)}
+  .names button{padding:9px 0 9px 10px;gap:2px}
+  .names .zh{font-size:19px}
+  .names .en{font-size:9px;letter-spacing:.16em}
+  .info .nm{font-size:30px}
+  .info .nm .en{font-size:14px;margin-left:9px}
+  .info .bio{font-size:14.5px;line-height:1.6}
+  .info .biozh{font-size:12.5px}
+  .info .appear{margin-top:12px}
+
+  .bar{padding:14px 0 18px}
+  .track{display:grid;grid-template-columns:repeat(6,24px);gap:4px;justify-content:start}
+  .legend{margin-top:6px;font-size:9.5px;letter-spacing:.12em}
+
+  .about{padding:52px 0 56px}
+  .about .grid{grid-template-columns:1fr;gap:26px}
+  .about .avatar{width:150px}
+  .about .sig{font-size:56px}
+  .about h2{font-size:28px;margin-bottom:18px}
+  .about .q{font-size:15.5px;margin-bottom:16px}
+  .about .q .zh{font-size:13px}
+
+  .foot{padding:24px 0 32px}
+  .foot .row{flex-direction:column;align-items:flex-start;gap:14px}
+  .foot .tag{font-size:26px}
+}
+
+/* 矮屏（笔记本 13 寸外接竖屏等）：把人物廊的字收一点，不溢出 */
+@media (min-width:761px) and (max-height:780px){
+  .people .head h2{font-size:clamp(34px,4.4vw,58px)}
+  .people .head .zh{margin-top:10px;font-size:15px}
+  .overlay{padding-top:calc(5.2vh + 116px)}
+  .names .zh{font-size:24px}
+  .names button{padding:7px 0 7px 14px}
+  .info .nm{font-size:38px}
+  .info .bio{font-size:14.5px;margin-top:9px}
+  .info .biozh{margin-top:6px}
+  .info .appear{margin-top:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 1 第一屏 ===== -->
+<header class="nav">
+  <div class="wrap row">
+    <div class="wordmark"><span class="hz">博弈</span><span class="lat">Bóyì</span></div>
+    <ul>
+      <li><a href="#latest">Latest</a></li>
+      <li><a href="#people">People</a></li>
+      <li class="hide"><a href="#all">All 36</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="count"><b>2</b> / 36 out</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="ink"></div>
+  <div class="wrap inner">
+    <span class="kicker">The 36 Stratagems · 三十六计</span>
+    <h1>Chinese kids learn<br>36 stratagems.<br><em>Now you can too.</em></h1>
+    <p class="lede">Two thousand years of Chinese strategy, one story at a time. Watch the video, keep the free page.</p>
+    <div class="acts">
+      <a class="btn red" href="https://www.youtube.com/watch?v=hRMQLKflLd4">Start with No.1 <span class="arw">→</span></a>
+      <a class="link" href="#latest">Or see the latest</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2 最新一计 ===== -->
+<section class="latest" id="latest">
+  <div class="wrap">
+    <div class="seclabel"><span class="no">No. 02 / 36</span><span class="ln"></span><span class="meta">Latest stratagem</span></div>
+    <div class="grid">
+      <div>
+        <h2>
+          <span class="pz">
+            <span class="ch"><span class="h">围</span><span class="p">wéi</span></span>
+            <span class="ch"><span class="h">魏</span><span class="p">Wèi</span></span>
+            <span class="ch"><span class="h">救</span><span class="p">jiù</span></span>
+            <span class="ch"><span class="h">赵</span><span class="p">Zhào</span></span>
+          </span>
+        </h2>
+        <div class="en-name">Besiege Wei to rescue Zhao</div>
+        <p class="one">Wei's best army had Zhao's capital surrounded. Qi never went to the city — it marched on Wei's own capital instead, and the siege lifted itself.</p>
+        <div class="acts">
+          <a class="btn red" href="https://www.youtube.com/watch?v=u353q4sJoHI">Watch the video</a>
+          <a class="btn ghost" href="2/">Free PDF</a>
+        </div>
+      </div>
+      <figure class="cover">
+        <div class="pic"><img src="图/sc-017.webp" alt="Wei's army on the road to Handan"></div>
+        <figcaption class="cap">Wei's army on the road to Handan · 354 BC</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3 人物大图廊 ===== -->
+<section class="people" id="people">
+  <div class="head">
+    <h2>Who's your <em>favorite</em>?</h2>
+    <p class="zh">你最喜欢谁？</p>
+  </div>
+  <div class="stage">
+    <div class="shots" id="shots"></div>
+    <div class="veil"></div>
+    <div class="overlay">
+      <ul class="names" id="names" role="tablist" aria-label="People"></ul>
+      <div class="info" id="info">
+        <div class="nm"><span id="nmZh"></span><span class="en" id="nmEn"></span></div>
+        <p class="bio" id="bio"></p>
+        <p class="biozh" id="bioZh"></p>
+        <a class="appear" id="appear" href="#all"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4 36 计进度条 ===== -->
+<section class="bar" id="all">
+  <div class="wrap">
+    <div class="track" id="track"></div>
+    <div class="legend">2 of 36 out · a new one every week</div>
+  </div>
+</section>
+
+<!-- ===== 5 关于 Yoko ===== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="grid">
+      <figure class="avatar"><img src="图/yoko-头像.webp" alt="Yoko"></figure>
+      <div>
+        <span class="kicker">About</span>
+        <h2>About Yoko</h2>
+        <div class="sig">Yoko</div>
+        <div class="sigline">Read the 36 Stratagems with Yoko</div>
+        <p class="q">I'm Yoko. I make short videos about the thirty-six stratagems every Chinese kid grows up with.<span class="zh">我是阳子，讲中国人从小就懂的三十六计。</span></p>
+        <p class="q">For each one I tell the old story first, then show where the same move shows up today — in an office, in a marriage, in a family argument.<span class="zh">每一计先讲古代那一仗，再说今天它出现在哪儿——办公室、夫妻、家里的争执。</span></p>
+        <p class="q">If one of them lights something up for you, take the free page and try it this week.<span class="zh">哪一计让你想通了一件事，就拿走那一页，这周试一试。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6 页脚 ===== -->
+<footer class="foot">
+  <div class="wrap row">
+    <a class="yt" href="https://www.youtube.com/@yoko-boyi" target="_blank" rel="noopener"><span class="dot"></span>Watch on YouTube</a>
+    <div class="cop">© 2026 博弈 Bóyì · The 36 Stratagems with Yoko</div>
+    <div>
+      <div class="tag">Yoko</div>
+      <div class="tagsub">Read the 36 Stratagems with Yoko</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   人物廊数据：七个人都写好了，ready:false 的先不进画面、不进名单。
+   阿甘补出杨坚、齐威王的主角插图后，把 ready 改 true、填 img 即可。
+   pos  ：桌面 object-position（人脸落位用）
+   posM ：手机 object-position（手机是 60vh 竖裁，横向裁得比桌面多得多）
+   dx   ：额外横移（占图片宽度百分比，只在桌面裁不够时用）
+   zoom ：放大倍数（配合 dx，放大才不会有露边）
+   mirror：镜像（子房 20261020 允许：画面无字、无明显左右手动作才可用）
+   ========================================================= */
+const PEOPLE = [
+  { id:'he-ruobi', zh:'贺若弼', en:'He Ruobi', role:'general of Sui',
+    img:'图/p-he-ruobi.webp', pos:'50% 42%', posM:'86% 50%', dx:'0%', zoom:1, mirror:false,
+    bio:'A Sui general on the Yangtze frontier. He swapped his garrison in plain sight until Chen stopped watching.',
+    bioZh:'隋朝将领，在长江前线反复换防，让陈军看惯了。',
+    appear:'Appears in No. 1', href:'#all' },
+  { id:'yang-jian', zh:'杨坚', en:'Yang Jian', role:'founder of the Sui dynasty',
+    img:'图/p-yang-jian-v2.webp', pos:'64% 0%', posM:'67% 50%', dx:'0%', zoom:1, mirror:false,
+    bio:'Emperor Wen of Sui. In 589 his armies cross the river and end the Chen dynasty.',
+    bioZh:'隋朝开国皇帝，589 年南下灭陈。',
+    appear:'Appears in No. 1', href:'#all' },
+  { id:'chen-shubao', zh:'陈叔宝', en:'Chen Shubao', role:'last emperor of Chen',
+    img:'图/p-chen-shubao.webp', pos:'50% 48%', posM:'46% 50%', dx:'17%', zoom:1.4, mirror:false,
+    bio:'The last emperor of Chen, in Jiankang. Across the river, the frontier looked quiet to him.',
+    bioZh:'陈朝末代皇帝，隔着江，他觉得前线很安静。',
+    appear:'Appears in No. 1', href:'#all' },
+  { id:'sun-bin', zh:'孙膑', en:'Sun Bin', role:'strategist of Qi',
+    img:'图/p-sun-bin.webp', pos:'50% 46%', posM:'18% 50%', dx:'0%', zoom:1, mirror:true,
+    bio:'Qi\u2019s strategist, a descendant of Sun Wu. He plans from a wooden cart, never on the field.',
+    bioZh:'齐国谋士，在小木车上出主意，从不上阵。',
+    appear:'Appears in No. 2', href:'#latest' },
+  { id:'tian-ji', zh:'田忌', en:'Tian Ji', role:'general of Qi',
+    img:'图/p-tian-ji.webp', pos:'50% 46%', posM:'18% 50%', dx:'0%', zoom:1, mirror:true,
+    bio:'Qi\u2019s general. His first instinct: march straight at Handan and fight \u2014 the obvious plan.',
+    bioZh:'齐国将军，第一反应是直奔邯郸、正面打。',
+    appear:'Appears in No. 2', href:'#latest' },
+  { id:'pang-juan', zh:'庞涓', en:'Pang Juan', role:'general of Wei',
+    img:'图/p-pang-juan.webp', pos:'50% 46%', posM:'75% 50%', dx:'0%', zoom:1, mirror:false,
+    bio:'Wei\u2019s general. His troops have Handan surrounded when news comes that Wei\u2019s capital is in danger.',
+    bioZh:'魏国将军，精兵围着邯郸，忽然听说都城危急。',
+    appear:'Appears in No. 2', href:'#latest' },
+  { id:'king-wei-of-qi', zh:'齐威王', en:'King Wei of Qi', role:'ruler of Qi',
+    img:'图/p-king-wei-of-qi-v2.webp', pos:'62% 0%', posM:'67% 50%', dx:'0%', zoom:1, mirror:false,
+    bio:'The ruler of Qi. He asked Sun Bin about the art of war, took him as his teacher, and sent him to rescue Zhao.',
+    bioZh:'齐国国君，问孙膑兵法、拜他为师；救赵就是他派孙膑去的。',
+    appear:'Appears in No. 2', href:'#latest' }
+];
+
+const list = PEOPLE.filter(p => p.ready !== false);   // 缺图的先不进名单
+const shotsEl = document.getElementById('shots');
+const namesEl = document.getElementById('names');
+const infoEl  = document.getElementById('info');
+const nmZh = document.getElementById('nmZh'), nmEn = document.getElementById('nmEn');
+const bioEl = document.getElementById('bio'), bioZhEl = document.getElementById('bioZh'), appearEl = document.getElementById('appear');
+
+/* 两张图叠放，opacity 交叉淡入淡出 600ms（CSS transition） */
+const layer = [document.createElement('img'), document.createElement('img')];
+layer.forEach(im => { im.className = 'shot'; im.alt = ''; shotsEl.appendChild(im); });
+let cur = 0, token = 0;
+
+/* 七张图预先加载（只预加载 ready 的） */
+list.forEach(p => { const i = new Image(); i.src = p.img; });
+
+function paint(el, p){
+  el.style.setProperty('--pos', p.pos);
+  el.style.setProperty('--pos-m', p.posM);
+  el.style.setProperty('--dx', p.dx || '0%');
+  el.style.setProperty('--zoom', p.zoom || 1);
+  el.style.setProperty('--sx', p.mirror ? -1 : 1);
+}
+
+function show(i, animate){
+  const p = list[i];
+  [...namesEl.children].forEach((li, k) => li.firstChild.setAttribute('aria-selected', k === i ? 'true' : 'false'));
+
+  const incoming = layer[1 - cur], outgoing = layer[cur];
+  const my = ++token;
+  incoming.onload = () => {
+    if (my !== token) return;                 // 快速连点：只认最后一次
+    incoming.classList.add('on');
+    outgoing.classList.remove('on');
+    cur = 1 - cur;
+  };
+  paint(incoming, p);
+  incoming.src = p.img;
+  incoming.alt = p.zh + ' ' + p.en;
+  if (incoming.complete && incoming.naturalWidth) incoming.onload();  // 已缓存
+
+  const apply = () => {
+    nmZh.textContent = p.zh;
+    nmEn.textContent = p.en;
+    bioEl.textContent = p.bio;
+    bioZhEl.textContent = p.bioZh;
+    appearEl.textContent = p.off ? p.appear : p.appear + ' →';
+    appearEl.href = p.href;
+    appearEl.className = 'appear' + (p.off ? ' off' : '');
+  };
+  if (animate){
+    infoEl.classList.add('fade');
+    setTimeout(() => { apply(); infoEl.classList.remove('fade'); }, 160);
+  } else { apply(); }
+}
+
+list.forEach((p, i) => {
+  const li = document.createElement('li');
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.setAttribute('role', 'tab');
+  b.setAttribute('aria-selected', 'false');
+  b.innerHTML = '<span class="zh">' + p.zh + '</span><span class="en">' + p.en + '</span>';
+  b.addEventListener('click', () => show(i, true));
+  li.appendChild(b);
+  namesEl.appendChild(li);
+});
+
+show(0, false);
+
+/* ---- 36 计进度条 ---- */
+const out = {
+  1: {zh:'瞒天过海', href:'https://www.youtube.com/watch?v=hRMQLKflLd4'},
+  2: {zh:'围魏救赵', href:'#latest'}
+};
+const track = document.getElementById('track');
+for (let i = 1; i <= 36; i++){
+  const no = String(i).padStart(2, '0');
+  const o = out[i];
+  const el = document.createElement(o ? 'a' : 'div');
+  el.className = 'sq ' + (o ? 'live' : 'todo');
+  el.textContent = no;
+  if (o){ el.href = o.href; el.dataset.name = 'No. ' + no + ' · ' + o.zh; el.title = 'No. ' + no + ' · ' + o.zh; }
+  track.appendChild(el);
+}
+</script>
+</body>
+</html>
