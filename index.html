@@ -5,9 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>博弈 Bóyì · The 36 Stratagems with Yoko</title>
 <meta name="description" content="Chinese kids learn 36 stratagems. Now you can too. One stratagem at a time: the story, the video, and a free one-page PDF.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="博弈 Bóyì">
+<meta property="og:title" content="博弈 Bóyì · The 36 Stratagems with Yoko">
+<meta property="og:description" content="One stratagem at a time: the story, the video, and a free PDF. 三十六计，一计一个故事。">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="博弈 Bóyì · The 36 Stratagems with Yoko">
+<meta name="twitter:description" content="One stratagem at a time: the story, the video, and a free PDF.">
+<meta name="twitter:image" content="og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ============ 字体（取现成模板字体，不新做） ============ */
-@font-face{font-family:'NotoSerifSC';src:url('字体/NotoSerifSC[wght].ttf') format('truetype');font-weight:100 900;font-display:swap}
+/* ============ 字体 ============
+   中文衬线用 Google Fonts 的 Noto Serif SC（免费、按需下载、不占仓库）
+   其余三个用站内 字体/ 目录下的文件，许可文件也在那里 */
 @font-face{font-family:'NotoSerif';src:url('字体/NotoSerif[wdth,wght].ttf') format('truetype');font-weight:100 900;font-display:swap}
 @font-face{font-family:'Allura';src:url('字体/Allura-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:'Oswald';src:url('字体/Oswald[wght].ttf') format('truetype');font-weight:200 700;font-display:swap}
@@ -23,8 +41,8 @@
   --red-lit:#c8503c;    /* 深色块上的朱红（同色提亮，深底上才看得清） */
   --line:rgba(34,52,76,.16);
   --line-2:rgba(34,52,76,.09);
-  --serif:'NotoSerif','NotoSerifSC',Georgia,serif;
-  --sc:'NotoSerifSC','NotoSerif',serif;
+  --serif:'NotoSerif','Noto Serif SC',Georgia,serif;
+  --sc:'Noto Serif SC','NotoSerif',serif;
   --sans:'Oswald','Helvetica Neue',Arial,sans-serif;
   --body:'Helvetica Neue','Segoe UI','Ubuntu Sans','Liberation Sans',Arial,sans-serif;
 }
@@ -164,6 +182,7 @@ a{color:inherit;text-decoration:none}
 .foot .yt{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
 .foot .yt .dot{width:6px;height:6px;background:var(--red);border-radius:50%}
 .foot .cop{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.foot .cop a{color:inherit;border-bottom:1px solid rgba(34,52,76,.35);padding-bottom:2px}
 .foot .tag{font-family:'Allura',cursive;font-size:30px;color:var(--ink)}
 .foot .tagsub{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--red);letter-spacing:.02em}
 
@@ -359,7 +378,7 @@ a{color:inherit;text-decoration:none}
 <footer class="foot">
   <div class="wrap row">
     <a class="yt" href="https://www.youtube.com/@yoko-boyi" target="_blank" rel="noopener"><span class="dot"></span>Watch on YouTube</a>
-    <div class="cop">© 2026 博弈 Bóyì · The 36 Stratagems with Yoko</div>
+    <div class="cop">© 2026 博弈 Bóyì · The 36 Stratagems with Yoko · <a href="credits.html">Credits</a></div>
     <div>
       <div class="tag">Yoko</div>
       <div class="tagsub">Read the 36 Stratagems with Yoko</div>

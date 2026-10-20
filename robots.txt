@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# 站点现在挂在项目子路径；绑到自定义域名后把下面两行的域名换成最终域名
+Sitemap: https://yoko-naora.github.io/boyi-site/sitemap.xml
