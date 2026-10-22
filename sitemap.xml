@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 域名还没绑：先写现在能打开的 GitHub Pages 地址；绑到自定义域名后把 4 处 loc 换成最终域名 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 首页（index.html）20261022 未上线：等人物廊新版一起上，届时把这两条放回来 -->
+  <!--
   <url>
     <loc>https://yoko-naora.github.io/boyi-site/</loc>
     <lastmod>2026-10-20</lastmod>
     <priority>1.0</priority>
   </url>
+  -->
   <url>
     <loc>https://yoko-naora.github.io/boyi-site/1/</loc>
     <lastmod>2026-10-20</lastmod>
@@ -31,11 +34,14 @@
     <lastmod>2026-10-21</lastmod>
     <priority>0.8</priority>
   </url>
+  <!-- credits.html 暂未上线（依赖 字体/ 目录，随首页那批一起上） -->
+  <!--
   <url>
     <loc>https://yoko-naora.github.io/boyi-site/credits.html</loc>
     <lastmod>2026-10-20</lastmod>
     <priority>0.3</priority>
   </url>
+  -->
   <url><loc>https://yoko-naora.github.io/boyi-site/6/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://yoko-naora.github.io/boyi-site/7/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://yoko-naora.github.io/boyi-site/9/</loc><lastmod>2026-10-22</lastmod></url>
