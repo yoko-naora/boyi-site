@@ -1,0 +1,88 @@
+/* 人物页样式（卡 361）：程序生成的人物页共用这一份。配色与首页一致：米白宣纸＋墨蓝＋朱红。 */
+@font-face{font-family:'NotoSerif';src:url('../字体/NotoSerif[wdth,wght].ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Oswald';src:url('../字体/Oswald[wght].ttf') format('truetype');font-weight:200 700;font-display:swap}
+
+:root{
+  --paper:#f6efdf;
+  --ink:#22344c;
+  --red:#9e3328;
+  --grey:#8a8f98;
+  --line:rgba(34,52,76,.16);
+  --serif:'NotoSerif','Noto Serif SC',Georgia,serif;
+  --sc:'Noto Serif SC','NotoSerif',serif;
+  --sans:'Oswald','Helvetica Neue',Arial,sans-serif;
+  --body:'Helvetica Neue','Segoe UI','Ubuntu Sans','Liberation Sans',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 56px}
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.30em;text-transform:uppercase;color:var(--red)}
+.meta{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.20em;text-transform:uppercase;color:var(--grey)}
+
+/* ---------- 首屏：整屏大图＋超大名字 ---------- */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#1B2638}
+.hero .pic{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .veil{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(27,38,56,.55) 0%,rgba(27,38,56,0) 34%,rgba(27,38,56,.30) 62%,rgba(27,38,56,.86) 100%)}
+.heroIn{position:absolute;left:0;right:0;bottom:0;padding:0 6vw 8vh;z-index:2;color:#f6efdf;max-width:1100px}
+.hero .kicker{color:#e8b9a8}
+.hero h1{margin:14px 0 0;font-family:var(--sc);font-weight:500;font-size:clamp(58px,9.6vw,150px);line-height:.98;letter-spacing:.02em;text-shadow:0 2px 30px rgba(10,16,28,.45)}
+.hero h1 .en{display:block;margin-top:10px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(18px,2.4vw,34px);letter-spacing:.01em;color:rgba(246,239,223,.86);text-shadow:none}
+.hero .line{margin:22px 0 0;max-width:640px;font-family:var(--body);font-size:17px;line-height:1.7;color:rgba(246,239,223,.94)}
+.hero .lineZh{margin:8px 0 0;max-width:640px;font-family:var(--sc);font-size:13.5px;line-height:1.8;color:rgba(246,239,223,.62)}
+.hero .down{position:absolute;right:6vw;bottom:7vh;z-index:2;color:rgba(246,239,223,.7);font-size:22px;line-height:1;padding:10px}
+.hero .down:hover{color:#fff}
+
+/* ---------- 正文 ---------- */
+.sec{padding:84px 0 8px}
+.seclabel{display:flex;align-items:center;gap:16px;margin-bottom:30px}
+.seclabel .no{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.26em;text-transform:uppercase;color:var(--red)}
+.seclabel .ln{flex:1;height:1px;background:var(--line)}
+
+.story{max-width:680px}
+.story p{margin:0 0 26px;font-family:var(--body);font-size:17.5px;line-height:1.85;color:rgba(34,52,76,.88)}
+.story p .zh{display:block;margin-top:8px;font-family:var(--sc);font-size:13.5px;line-height:1.85;color:rgba(34,52,76,.56)}
+
+.eps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.ep{border-top:2px solid var(--ink);padding:20px 0 6px}
+.ep .epNo{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.ep h2{margin:10px 0 4px;font-family:var(--sc);font-weight:500;font-size:32px;line-height:1.15;letter-spacing:.04em}
+.ep .epEn{font-family:var(--serif);font-style:italic;font-size:17px;color:rgba(34,52,76,.76)}
+.epActs{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-block;padding:12px 20px;border:1px solid var(--red);font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase}
+.btn.red{background:var(--red);color:var(--paper)}
+.btn.ghost{color:var(--red)}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding-bottom:8px}
+.mini{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;background:#c9b48f;border:1px solid rgba(34,52,76,.18)}
+.mini img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.mini::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,26,38,0) 55%,rgba(20,26,38,.72) 100%)}
+.mini .nm{position:absolute;left:12px;right:12px;bottom:10px;z-index:2;color:#f6efdf;display:flex;flex-direction:column;gap:2px}
+.mini .nm .zh{font-family:var(--sc);font-size:15px;letter-spacing:.06em}
+.mini .nm .en{font-family:var(--sans);font-size:9.5px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,239,223,.78)}
+.mini:hover img{transform:scale(1.05)}
+
+/* ---------- 页脚 ---------- */
+.foot{padding:70px 0 46px;margin-top:64px;border-top:1px solid var(--line)}
+.foot .row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .back{font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid rgba(34,52,76,.35);padding-bottom:3px}
+
+/* ---------- 手机 390 ---------- */
+@media (max-width:760px){
+  .wrap{padding:0 18px}
+  .hero{height:88vh;min-height:540px}
+  .heroIn{padding:0 18px 6vh}
+  .hero h1{font-size:clamp(46px,15vw,72px)}
+  .hero .line{font-size:15.5px;margin-top:16px}
+  .hero .lineZh{font-size:12.5px}
+  .hero .down{right:16px;bottom:5vh}
+  .sec{padding:56px 0 4px}
+  .story p{font-size:16px;line-height:1.8}
+  .ep h2{font-size:26px}
+  .ep .epEn{font-size:15px}
+  .btn{flex:1 1 46%;text-align:center;padding:12px 14px}
+  .strip{grid-template-columns:repeat(2,1fr);gap:8px}
+}

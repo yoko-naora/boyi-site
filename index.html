@@ -111,44 +111,32 @@ a{color:inherit;text-decoration:none}
 .cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
 .cover .cap{margin:10px 0 0;font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:rgba(34,52,76,.55)}
 
-/* ============ 3 人物大图廊（全站唯一深色块） ============ */
-.people{position:relative;background:var(--deep);color:var(--paper);height:100vh;min-height:640px;overflow:hidden}
+/* ============ 3 人物卡片墙（卡 361：照 Arts & Culture 的一墙卡片做法） ============ */
+.people{position:relative;padding:92px 0 100px;border-bottom:1px solid var(--line);
+  background:var(--paper) url('图/人物廊-舆图底.webp') center/cover no-repeat}
+.people::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(246,239,223,.90) 0%,rgba(246,239,223,.64) 42%,rgba(246,239,223,.90) 100%)}
+.people .wrap{position:relative;z-index:1}
+.people .head{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;flex-wrap:wrap;margin-bottom:34px}
+.people h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.6vw,64px);line-height:1.02;letter-spacing:-.015em}
+.people h2 em{font-style:italic;color:var(--red)}
+.people .head .zh{margin:10px 0 0;font-family:var(--sc);font-size:17px;letter-spacing:.06em;color:rgba(34,52,76,.66)}
+.people .head .hint{margin:0 0 8px;font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--grey)}
 
-/* 顶部大标题：和第一屏标题同级，favorite 朱红斜体 */
-.people .head{position:absolute;left:6vw;top:5.2vh;z-index:4;max-width:min(780px,66vw)}
-.people .head h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.4vw,78px);line-height:1.02;letter-spacing:-.015em}
-.people .head h2 em{font-style:italic;color:var(--red-lit)}
-.people .head .zh{margin:14px 0 0;font-family:var(--sc);font-size:17px;letter-spacing:.06em;color:rgba(246,239,223,.66)}
-
-.stage{position:absolute;inset:0}
-.shots{position:absolute;inset:0}
-.shot{position:absolute;inset:0;width:100vw;height:100%;object-fit:cover;
-  object-position:var(--pos,50% 50%);
-  transform:translateX(var(--dx,0)) scale(var(--zoom,1)) scaleX(var(--sx,1));
-  opacity:0;transition:opacity .6s ease;will-change:opacity}
-.shot.on{opacity:1}
-.veil{position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(90deg,rgba(27,38,56,.92) 0%,rgba(27,38,56,.6) 35%,transparent 60%)}
-.overlay{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;
-  padding:calc(5.2vh + 140px) 6vw 5.6vh}
-
-.names{list-style:none;margin:auto 0;padding:0;max-width:380px;width:100%}
-.names button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;background:none;border:0;
-  border-left:2px solid transparent;padding:9px 0 9px 16px;cursor:pointer;text-align:left;
-  color:rgba(246,239,223,.5);transition:color .25s ease}
-.names button:hover{color:rgba(246,239,223,.8)}
-.names button[aria-selected="true"]{color:#fff;border-left-color:var(--red-lit)}
-.names .zh{font-family:var(--sc);font-size:28px;font-weight:500;line-height:1.1;letter-spacing:.06em}
-.names .en{font-family:var(--sans);font-size:12px;font-weight:300;letter-spacing:.24em;text-transform:uppercase}
-
-.info{max-width:520px;transition:opacity .3s ease}
-.info.fade{opacity:0}
-.info .nm{font-family:var(--sc);font-size:48px;line-height:1.05;letter-spacing:.04em}
-.info .nm .en{font-family:var(--serif);font-style:italic;font-size:20px;letter-spacing:0;color:rgba(246,239,223,.62);margin-left:14px}
-.info .bio{margin:12px 0 0;font-family:var(--body);font-size:15.5px;line-height:1.62;color:rgba(246,239,223,.9);max-width:460px}
-.info .biozh{margin:8px 0 0;font-family:var(--sc);font-size:13px;line-height:1.7;color:rgba(246,239,223,.55);max-width:460px}
-.info .appear{display:inline-block;margin-top:14px;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-  color:#e8b9a8;border-bottom:1px solid rgba(232,185,168,.45);padding-bottom:4px}
+.wall{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(4,clamp(150px,13vw,192px));gap:12px}
+.card{position:relative;display:block;overflow:hidden;background:#c9b48f;border:1px solid rgba(34,52,76,.18)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1);filter:saturate(.96)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(20,26,38,0) 52%,rgba(20,26,38,.74) 100%)}
+.card .nm{position:absolute;left:14px;right:12px;bottom:12px;z-index:2;display:flex;flex-direction:column;gap:3px;color:#f6efdf}
+.card .nm .zh{font-family:var(--sc);font-weight:500;font-size:clamp(15px,1.4vw,19px);line-height:1.1;letter-spacing:.06em}
+.card .nm .en{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,239,223,.8)}
+.card.lead .nm .zh{font-size:clamp(24px,2.6vw,38px)}
+.card.lead .nm .en{font-size:11.5px}
+.card.narrow .nm{left:10px;right:8px}
+.card.narrow .nm .en{font-size:8.5px;letter-spacing:.12em}
+.card:hover img{transform:scale(1.045)}
+.card:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
 /* ============ 4 36 计进度条（整段 ≤ 220px） ============ */
 .bar{padding:48px 0 52px;border-bottom:1px solid var(--line)}
@@ -215,28 +203,19 @@ a{color:inherit;text-decoration:none}
   .latest .acts .btn{flex:1 1 46%}
   .cover .cap{font-size:9px;letter-spacing:.14em;margin-top:8px}
 
-  /* 人物廊：图在上 60vh，名单两列，介绍在名单下面 */
-  .people{height:auto;min-height:0;display:flex;flex-direction:column}
-  .people .head{position:static;max-width:none;padding:26px 16px 18px;order:0}
-  .people .head h2{font-size:34px}
-  .people .head .zh{font-size:14px;margin-top:9px}
-  .stage{position:static;display:flex;flex-direction:column;height:auto;order:1}
-  .shots{position:relative;inset:auto;width:100vw;height:60vh;flex:none}
-  .shot{width:100%;height:100%;object-position:var(--pos-m,var(--pos,50% 50%));
-    transform:scaleX(var(--sx,1))}   /* 手机只保留镜像，不用放大/横移 */
-  .veil{background:linear-gradient(180deg,rgba(27,38,56,0) 62%,rgba(27,38,56,.62) 100%)}
-  .overlay{position:static;inset:auto;padding:20px 16px 34px;display:block}
-  .names{display:grid;grid-template-columns:1fr 1fr;max-width:none;width:auto;margin:0 0 22px;
-    border-top:1px solid rgba(246,239,223,.16)}
-  .names li:nth-child(odd){border-right:1px solid rgba(246,239,223,.12)}
-  .names button{padding:9px 0 9px 10px;gap:2px}
-  .names .zh{font-size:19px}
-  .names .en{font-size:9px;letter-spacing:.16em}
-  .info .nm{font-size:30px}
-  .info .nm .en{font-size:14px;margin-left:9px}
-  .info .bio{font-size:14.5px;line-height:1.6}
-  .info .biozh{font-size:12.5px}
-  .info .appear{margin-top:12px}
+  /* 人物卡片墙：两列，主角卡占两列两行，其余一格 */
+  .people{padding:52px 0 56px}
+  .people .head{margin-bottom:22px}
+  .people h2{font-size:32px}
+  .people .head .zh{font-size:14px;margin-top:8px}
+  .people .head .hint{display:none}
+  .wall{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:150px;gap:8px}
+  .card{grid-column:auto!important;grid-row:auto!important}
+  .card.lead{grid-column:1/span 2!important;grid-row:span 2!important}
+  .card .nm{left:10px;right:8px;bottom:9px}
+  .card .nm .zh{font-size:16px}
+  .card .nm .en{font-size:9px;letter-spacing:.14em}
+  .card.lead .nm .zh{font-size:28px}
 
   .bar{padding:14px 0 18px}
   .track{display:grid;grid-template-columns:repeat(6,24px);gap:4px;justify-content:start}
@@ -255,17 +234,11 @@ a{color:inherit;text-decoration:none}
   .foot .tag{font-size:26px}
 }
 
-/* 矮屏（笔记本 13 寸外接竖屏等）：把人物廊的字收一点，不溢出 */
+/* 矮屏（笔记本 13 寸外接竖屏等）：卡片墙的行高收一点，不溢出 */
 @media (min-width:761px) and (max-height:780px){
-  .people .head h2{font-size:clamp(34px,4.4vw,58px)}
-  .people .head .zh{margin-top:10px;font-size:15px}
-  .overlay{padding-top:calc(5.2vh + 116px)}
-  .names .zh{font-size:24px}
-  .names button{padding:7px 0 7px 14px}
-  .info .nm{font-size:38px}
-  .info .bio{font-size:14.5px;margin-top:9px}
-  .info .biozh{margin-top:6px}
-  .info .appear{margin-top:10px}
+  .people .head h2{font-size:clamp(32px,4.2vw,54px)}
+  .people .head .zh{margin-top:8px;font-size:15px}
+  .wall{grid-template-rows:repeat(4,clamp(132px,11.4vw,168px))}
 }
 </style>
 </head>
@@ -327,24 +300,28 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- ===== 3 人物大图廊 ===== -->
+<!-- ===== 3 人物卡片墙（卡 361；卡片由 人物/建人物页.py 生成，改数据别改这里） ===== -->
 <section class="people" id="people">
-  <div class="head">
-    <h2>Who's your <em>favorite</em>?</h2>
-    <p class="zh">你最喜欢谁？</p>
-  </div>
-  <div class="stage">
-    <div class="shots" id="shots"></div>
-    <div class="veil"></div>
-    <div class="overlay">
-      <ul class="names" id="names" role="tablist" aria-label="People"></ul>
-      <div class="info" id="info">
-        <div class="nm"><span id="nmZh"></span><span class="en" id="nmEn"></span></div>
-        <p class="bio" id="bio"></p>
-        <p class="biozh" id="bioZh"></p>
-        <a class="appear" id="appear" href="#all"></a>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Who's your <em>favorite</em>?</h2>
+        <p class="zh">你最喜欢谁？</p>
       </div>
+      <p class="hint">Tap a face · 点一张脸</p>
     </div>
+<!-- 人物廊:开始（人物/建人物页.py 生成，别手改） -->
+<div class="wall">
+<a class="card lead" href="people/sun-bin/" style="grid-column:1/span 3;grid-row:1/span 2"><img src="图/p-sun-bin.webp" alt="孙膑 Sun Bin" loading="lazy" style="object-position:50% 46%"><span class="nm"><span class="zh">孙膑</span><span class="en">Sun Bin</span></span></a>
+<a class="card" href="people/pang-juan/" style="grid-column:4/span 2;grid-row:1/span 2"><img src="图/p-pang-juan.webp" alt="庞涓 Pang Juan" loading="lazy" style="object-position:50% 46%"><span class="nm"><span class="zh">庞涓</span><span class="en">Pang Juan</span></span></a>
+<a class="card" href="people/king-wei-of-qi/" style="grid-column:6/span 2;grid-row:1/span 2"><img src="图/p-king-wei-of-qi-v3.webp" alt="齐威王 King Wei of Qi" loading="lazy" style="object-position:66% 0%"><span class="nm"><span class="zh">齐威王</span><span class="en">King Wei of Qi</span></span></a>
+<a class="card narrow" href="people/yang-jian/" style="grid-column:8/span 1;grid-row:1/span 2"><img src="图/p-yang-jian-v2.webp" alt="杨坚 Yang Jian" loading="lazy" style="object-position:64% 0%"><span class="nm"><span class="zh">杨坚</span><span class="en">Yang Jian</span></span></a>
+<a class="card" href="people/tian-ji/" style="grid-column:1/span 2;grid-row:3/span 2"><img src="图/p-tian-ji.webp" alt="田忌 Tian Ji" loading="lazy" style="object-position:50% 46%"><span class="nm"><span class="zh">田忌</span><span class="en">Tian Ji</span></span></a>
+<a class="card" href="people/he-ruobi/" style="grid-column:3/span 2;grid-row:3/span 2"><img src="图/p-he-ruobi.webp" alt="贺若弼 He Ruobi" loading="lazy" style="object-position:50% 42%"><span class="nm"><span class="zh">贺若弼</span><span class="en">He Ruobi</span></span></a>
+<a class="card" href="people/chen-shubao/" style="grid-column:5/span 2;grid-row:3/span 2"><img src="图/p-chen-shubao.webp" alt="陈叔宝 Chen Shubao" loading="lazy" style="object-position:50% 48%"><span class="nm"><span class="zh">陈叔宝</span><span class="en">Chen Shubao</span></span></a>
+<a class="card" href="people/zheng-huangong/" style="grid-column:7/span 2;grid-row:3/span 2"><img src="图/p-zheng-huangong.webp" alt="郑桓公 Duke Huan of Zheng" loading="lazy" style="object-position:61% 0%"><span class="nm"><span class="zh">郑桓公</span><span class="en">Duke Huan of Zheng</span></span></a>
+</div>
+<!-- 人物廊:结束 -->
   </div>
 </section>
 
@@ -387,126 +364,7 @@ a{color:inherit;text-decoration:none}
 </footer>
 
 <script>
-/* =========================================================
-   人物廊数据：七个人都写好了，ready:false 的先不进画面、不进名单。
-   阿甘补出杨坚、齐威王的主角插图后，把 ready 改 true、填 img 即可。
-   pos  ：桌面 object-position（人脸落位用）
-   posM ：手机 object-position（手机是 60vh 竖裁，横向裁得比桌面多得多）
-   dx   ：额外横移（占图片宽度百分比，只在桌面裁不够时用）
-   zoom ：放大倍数（配合 dx，放大才不会有露边）
-   mirror：镜像（子房 20261020 允许：画面无字、无明显左右手动作才可用）
-   ========================================================= */
-const PEOPLE = [
-  { id:'he-ruobi', zh:'贺若弼', en:'He Ruobi', role:'general of Sui',
-    img:'图/p-he-ruobi.webp', pos:'50% 42%', posM:'86% 50%', dx:'0%', zoom:1, mirror:false,
-    bio:'A Sui general on the Yangtze frontier. He swapped his garrison in plain sight until Chen stopped watching.',
-    bioZh:'隋朝将领，在长江前线反复换防，让陈军看惯了。',
-    appear:'Appears in No. 1', href:'#all' },
-  { id:'yang-jian', zh:'杨坚', en:'Yang Jian', role:'founder of the Sui dynasty',
-    img:'图/p-yang-jian-v2.webp', pos:'64% 0%', posM:'67% 50%', dx:'0%', zoom:1, mirror:false,
-    bio:'Emperor Wen of Sui. In 589 his armies cross the river and end the Chen dynasty.',
-    bioZh:'隋朝开国皇帝，589 年南下灭陈。',
-    appear:'Appears in No. 1', href:'#all' },
-  { id:'chen-shubao', zh:'陈叔宝', en:'Chen Shubao', role:'last emperor of Chen',
-    img:'图/p-chen-shubao.webp', pos:'50% 48%', posM:'46% 50%', dx:'17%', zoom:1.4, mirror:false,
-    bio:'The last emperor of Chen, in Jiankang. Across the river, the frontier looked quiet to him.',
-    bioZh:'陈朝末代皇帝，隔着江，他觉得前线很安静。',
-    appear:'Appears in No. 1', href:'#all' },
-  { id:'sun-bin', zh:'孙膑', en:'Sun Bin', role:'strategist of Qi',
-    img:'图/p-sun-bin.webp', pos:'50% 46%', posM:'18% 50%', dx:'0%', zoom:1, mirror:true,
-    bio:'Qi\u2019s strategist, a descendant of Sun Wu. He plans from a wooden cart, never on the field.',
-    bioZh:'齐国谋士，在小木车上出主意，从不上阵。',
-    appear:'Appears in No. 2', href:'#latest' },
-  { id:'tian-ji', zh:'田忌', en:'Tian Ji', role:'general of Qi',
-    img:'图/p-tian-ji.webp', pos:'50% 46%', posM:'18% 50%', dx:'0%', zoom:1, mirror:true,
-    bio:'Qi\u2019s general. His first instinct: march straight at Handan and fight \u2014 the obvious plan.',
-    bioZh:'齐国将军，第一反应是直奔邯郸、正面打。',
-    appear:'Appears in No. 2', href:'#latest' },
-  { id:'pang-juan', zh:'庞涓', en:'Pang Juan', role:'general of Wei',
-    img:'图/p-pang-juan.webp', pos:'50% 46%', posM:'75% 50%', dx:'0%', zoom:1, mirror:false,
-    bio:'Wei\u2019s general. His troops have Handan surrounded when news comes that Wei\u2019s capital is in danger.',
-    bioZh:'魏国将军，精兵围着邯郸，忽然听说都城危急。',
-    appear:'Appears in No. 2', href:'#latest' },
-  { id:'king-wei-of-qi', zh:'齐威王', en:'King Wei of Qi', role:'ruler of Qi',
-    img:'图/p-king-wei-of-qi-v3.webp', pos:'66% 0%', posM:'69% 50%', dx:'0%', zoom:1, mirror:false,
-    bio:'The ruler of Qi. He asked Sun Bin about the art of war, took him as his teacher, and sent him to rescue Zhao.',
-    bioZh:'齐国国君，问孙膑兵法、拜他为师；救赵就是他派孙膑去的。',
-    appear:'Appears in No. 2', href:'#latest' },
-  { id:'zheng-huangong', zh:'郑桓公', en:'Duke Huan of Zheng', role:'ruler of Zheng',
-    img:'图/p-zheng-huangong.webp', pos:'61% 0%', posM:'68% 50%', dx:'0%', zoom:1, mirror:false,
-    bio:'The ruler of Zheng. He wanted Kuai\u2019s land, so he wrote its best men a promise and buried it outside their gate.',
-    bioZh:'郑国国君，想要郐国的地，就把郐国能人的名字写成盟书，埋在城门外。',
-    appear:'Appears in No. 3', href:'#all' }
-];
-
-const list = PEOPLE.filter(p => p.ready !== false);   // 缺图的先不进名单
-const shotsEl = document.getElementById('shots');
-const namesEl = document.getElementById('names');
-const infoEl  = document.getElementById('info');
-const nmZh = document.getElementById('nmZh'), nmEn = document.getElementById('nmEn');
-const bioEl = document.getElementById('bio'), bioZhEl = document.getElementById('bioZh'), appearEl = document.getElementById('appear');
-
-/* 两张图叠放，opacity 交叉淡入淡出 600ms（CSS transition） */
-const layer = [document.createElement('img'), document.createElement('img')];
-layer.forEach(im => { im.className = 'shot'; im.alt = ''; shotsEl.appendChild(im); });
-let cur = 0, token = 0;
-
-/* 七张图预先加载（只预加载 ready 的） */
-list.forEach(p => { const i = new Image(); i.src = p.img; });
-
-function paint(el, p){
-  el.style.setProperty('--pos', p.pos);
-  el.style.setProperty('--pos-m', p.posM);
-  el.style.setProperty('--dx', p.dx || '0%');
-  el.style.setProperty('--zoom', p.zoom || 1);
-  el.style.setProperty('--sx', p.mirror ? -1 : 1);
-}
-
-function show(i, animate){
-  const p = list[i];
-  [...namesEl.children].forEach((li, k) => li.firstChild.setAttribute('aria-selected', k === i ? 'true' : 'false'));
-
-  const incoming = layer[1 - cur], outgoing = layer[cur];
-  const my = ++token;
-  incoming.onload = () => {
-    if (my !== token) return;                 // 快速连点：只认最后一次
-    incoming.classList.add('on');
-    outgoing.classList.remove('on');
-    cur = 1 - cur;
-  };
-  paint(incoming, p);
-  incoming.src = p.img;
-  incoming.alt = p.zh + ' ' + p.en;
-  if (incoming.complete && incoming.naturalWidth) incoming.onload();  // 已缓存
-
-  const apply = () => {
-    nmZh.textContent = p.zh;
-    nmEn.textContent = p.en;
-    bioEl.textContent = p.bio;
-    bioZhEl.textContent = p.bioZh;
-    appearEl.textContent = p.off ? p.appear : p.appear + ' →';
-    appearEl.href = p.href;
-    appearEl.className = 'appear' + (p.off ? ' off' : '');
-  };
-  if (animate){
-    infoEl.classList.add('fade');
-    setTimeout(() => { apply(); infoEl.classList.remove('fade'); }, 160);
-  } else { apply(); }
-}
-
-list.forEach((p, i) => {
-  const li = document.createElement('li');
-  const b = document.createElement('button');
-  b.type = 'button';
-  b.setAttribute('role', 'tab');
-  b.setAttribute('aria-selected', 'false');
-  b.innerHTML = '<span class="zh">' + p.zh + '</span><span class="en">' + p.en + '</span>';
-  b.addEventListener('click', () => show(i, true));
-  li.appendChild(b);
-  namesEl.appendChild(li);
-});
-
-show(0, false);
+/* 人物廊卡片墙：页面里是 人物/建人物页.py 生成好的静态卡片，首页不再跑脚本。 */
 
 /* ---- 36 计进度条 ---- */
 const out = {

@@ -1,0 +1,103 @@
+{
+ "说明": "人物页与首页人物廊的唯一数据来源。改这里，跑 建人物页.py，首页卡片墙与 people/<id>/ 一起重出。",
+ "首页标题": {"en": "Who's your <em>favorite</em>?", "zh": "你最喜欢谁？"},
+ "站位": {"列数": 8, "行数": 4},
+ "人物": [
+  {
+   "id": "sun-bin", "zh": "孙膑", "en": "Sun Bin", "role": "strategist of Qi",
+   "img": "图/p-sun-bin.webp", "pos": "50% 46%", "posM": "18% 50%",
+   "cell": [1, 1], "span": [3, 2],
+   "line": "Qi's strategist, a descendant of Sun Wu. He plans from a wooden cart, never on the field.",
+   "lineZh": "齐国谋士，孙武之后，在小木车上出主意，从不上阵。",
+   "story": [
+    {"en": "Sun Bin was a descendant of Sun Wu, the man who wrote The Art of War. He studied strategy beside Pang Juan — and Pang Juan, once he held a command in Wei, had his old classmate's kneecaps cut out rather than let him be used by anyone else.",
+     "zh": "孙膑是孙武的后人。他和庞涓一起学兵法；庞涓当上魏国将军后，怕他被别国所用，先下手砍掉了他的膝盖骨。"},
+    {"en": "He got out of Wei in a cart, hidden by an envoy of Qi. In Qi he won the trust of the general Tian Ji with a horse race that looked like a certain loss: send the worst horse against their best, then win the other two. Three races, three wins, nothing bought.",
+     "zh": "他坐在车里、藏在齐国使者的车中逃出魏国。到齐国后，靠一场赛马赢得将军田忌的信任：下等马对他们的上等马，剩下两场全赢，一分钱没花。"},
+    {"en": "In 354 BC Wei's army had Handan surrounded. Sun Bin did not march on Handan. He struck at Wei's own capital instead, and Pang Juan had to turn his army around — the siege lifted itself. Twelve years later at Maling, Sun Bin had his men count the campfires down from a hundred thousand to thirty thousand a night. Pang Juan, sure that Qi's soldiers were deserting, raced ahead with the fast troops and rode into the ambush.",
+     "zh": "公元前 354 年，魏军围住邯郸。孙膑不去邯郸，直扑魏国都城，庞涓只能回头——围自然就解了。十二年后马陵，孙膑让人一夜夜把灶减少：十万、五万、三万。庞涓以为齐军逃了大半，带轻兵急追，一头撞进埋伏。"}
+   ],
+   "episodes": [
+    {"no": 2, "zh": "围魏救赵", "en": "Besiege Wei to rescue Zhao",
+     "video": "u353q4sJoHI", "pdf": "2/"}
+   ]
+  },
+  {
+   "id": "pang-juan", "zh": "庞涓", "en": "Pang Juan", "role": "general of Wei",
+   "img": "图/p-pang-juan.webp", "pos": "50% 46%", "posM": "75% 50%",
+   "cell": [4, 1], "span": [2, 2],
+   "line": "Wei's general. His troops have Handan surrounded when news comes that Wei's own capital is in danger.",
+   "lineZh": "魏国将军，精兵围着邯郸，忽然听说都城危急。",
+   "episodes": [
+    {"no": 2, "zh": "围魏救赵", "en": "Besiege Wei to rescue Zhao",
+     "video": "u353q4sJoHI", "pdf": "2/"}
+   ]
+  },
+  {
+   "id": "king-wei-of-qi", "zh": "齐威王", "en": "King Wei of Qi", "role": "ruler of Qi",
+   "img": "图/p-king-wei-of-qi-v3.webp", "pos": "66% 0%", "posM": "69% 50%",
+   "cell": [6, 1], "span": [2, 2],
+   "line": "The ruler of Qi. He asked Sun Bin about the art of war, took him as his teacher, and sent him to rescue Zhao.",
+   "lineZh": "齐国国君，问孙膑兵法、拜他为师；救赵就是他派孙膑去的。",
+   "episodes": [
+    {"no": 2, "zh": "围魏救赵", "en": "Besiege Wei to rescue Zhao",
+     "video": "u353q4sJoHI", "pdf": "2/"}
+   ]
+  },
+  {
+   "id": "yang-jian", "zh": "杨坚", "en": "Yang Jian", "role": "founder of the Sui dynasty",
+   "img": "图/p-yang-jian-v2.webp", "pos": "64% 0%", "posM": "67% 50%",
+   "cell": [8, 1], "span": [1, 2],
+   "line": "Emperor Wen of Sui. In 589 his armies cross the river and end the Chen dynasty.",
+   "lineZh": "隋朝开国皇帝，589 年南下灭陈。",
+   "episodes": [
+    {"no": 1, "zh": "瞒天过海", "en": "Cross the sea under camouflage",
+     "video": "hRMQLKflLd4", "pdf": "1/"}
+   ]
+  },
+  {
+   "id": "tian-ji", "zh": "田忌", "en": "Tian Ji", "role": "general of Qi",
+   "img": "图/p-tian-ji.webp", "pos": "50% 46%", "posM": "18% 50%",
+   "cell": [1, 3], "span": [2, 2],
+   "line": "Qi's general. His first instinct: march straight at Handan and fight — the obvious plan.",
+   "lineZh": "齐国将军，第一反应是直奔邯郸、正面打。",
+   "episodes": [
+    {"no": 2, "zh": "围魏救赵", "en": "Besiege Wei to rescue Zhao",
+     "video": "u353q4sJoHI", "pdf": "2/"}
+   ]
+  },
+  {
+   "id": "he-ruobi", "zh": "贺若弼", "en": "He Ruobi", "role": "general of Sui",
+   "img": "图/p-he-ruobi.webp", "pos": "50% 42%", "posM": "86% 50%",
+   "cell": [3, 3], "span": [2, 2],
+   "line": "A Sui general on the Yangtze frontier. He swapped his garrison in plain sight until Chen stopped watching.",
+   "lineZh": "隋朝将领，在长江前线反复换防，让陈军看惯了。",
+   "episodes": [
+    {"no": 1, "zh": "瞒天过海", "en": "Cross the sea under camouflage",
+     "video": "hRMQLKflLd4", "pdf": "1/"}
+   ]
+  },
+  {
+   "id": "chen-shubao", "zh": "陈叔宝", "en": "Chen Shubao", "role": "last emperor of Chen",
+   "img": "图/p-chen-shubao.webp", "pos": "50% 48%", "posM": "46% 50%",
+   "cell": [5, 3], "span": [2, 2],
+   "line": "The last emperor of Chen, in Jiankang. Across the river, the frontier looked quiet to him.",
+   "lineZh": "陈朝末代皇帝，隔着江，他觉得前线很安静。",
+   "episodes": [
+    {"no": 1, "zh": "瞒天过海", "en": "Cross the sea under camouflage",
+     "video": "hRMQLKflLd4", "pdf": "1/"}
+   ]
+  },
+  {
+   "id": "zheng-huangong", "zh": "郑桓公", "en": "Duke Huan of Zheng", "role": "ruler of Zheng",
+   "img": "图/p-zheng-huangong.webp", "pos": "61% 0%", "posM": "68% 50%",
+   "cell": [7, 3], "span": [2, 2],
+   "line": "The ruler of Zheng. He wanted Kuai's land, so he wrote its best men a promise and buried it outside their gate.",
+   "lineZh": "郑国国君，想要郐国的地，就把郐国能人的名字写成盟书，埋在城门外。",
+   "episodes": [
+    {"no": 3, "zh": "借刀杀人", "en": "Borrow a knife to kill a person",
+     "video": "8IpvU9a96Xg", "pdf": "3/"}
+   ]
+  }
+ ]
+}
