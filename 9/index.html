@@ -37,20 +37,6 @@
     height: 100%;
     border: 0;
   }
-  /* 视频还没上传：占位框（换成 iframe 时这两条可一并删掉） */
-  .video.hold { background: #f3f3f3; border: 1px dashed #c9c9c9; }
-  .video.hold span {
-    position: absolute;
-    top: 50%; left: 0; right: 0;
-    transform: translateY(-50%);
-    display: block;
-    text-align: center;
-    color: #6b6b6b;
-    font-size: 15px;
-    line-height: 1.7;
-    padding: 0 16px;
-  }
-  .video.hold small { display: block; font-size: 13px; color: #8d8d8d; }
   .watch { font-size: 15px; margin: 0 0 22px; }
   .btn {
     display: block;
@@ -80,25 +66,16 @@
 <h1>#9 隔岸观火 · Watch the fire from the other bank</h1>
 <p>免费下载 · Free download</p>
 
-<!-- ============================================================
-     上线前必做（老丁④上传第9计成片之后）：
-     1. 把下面 .video 里的 <span> 整段删掉、class 去掉 .hold，放进真播放器：
-        <div class="video">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/<视频ID>"
-            title="三十六计 第9计 隔岸观火 · The 36 Stratagems #9"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            allowfullscreen></iframe>
-        </div>
-     2. 把这行占位说明换成真链接（照 /3/ 的写法）：
-        <p class="watch"><a href="https://www.youtube.com/watch?v=<视频ID>">Watch on YouTube</a></p>
-     ============================================================ -->
-<div class="video hold">
-  <span>视频上传后嵌入<small>video embeds here after upload</small></span>
+<div class="video">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/bEb35iO_6Vo"
+    title="三十六计 第9计 隔岸观火 · The 36 Stratagems #9"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+    allowfullscreen></iframe>
 </div>
-<p class="watch">YouTube 链接待补 · link after upload</p>
+<p class="watch"><a href="https://www.youtube.com/watch?v=bEb35iO_6Vo">Watch on YouTube</a></p>
 
 <a class="btn" href="boyi-09-free-character-cards.pdf" download>下载 PDF · Download PDF</a>
 <a class="btn ghost" href="boyi-09-handbook.pdf" download>下载手帐 · Download handbook</a>
