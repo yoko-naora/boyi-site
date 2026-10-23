@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-# 站点现在挂在项目子路径；绑到自定义域名后把下面两行的域名换成最终域名
-Sitemap: https://yoko-naora.github.io/boyi-site/sitemap.xml
+# 20261023 卡589：站点已绑自定义域名 boyi.snsaladdin.com（旧 github.io/boyi-site/ 地址 301 过来）
+Sitemap: https://boyi.snsaladdin.com/sitemap.xml
