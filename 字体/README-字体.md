@@ -8,6 +8,7 @@
 | Noto Serif | 英文衬线标题 | 站内 `字体/NotoSerif[wdth,wght].ttf`（20261020 从 `/home/jding/Herdr/业务/boyi/模板/字体/` 复制） | SIL OFL 1.1（见 `OFL-notoserif.txt`） |
 | Oswald | 小号大写标签 | 站内 `字体/Oswald[wght].ttf`（同上复制） | SIL OFL 1.1（见 `OFL-oswald.txt`） |
 | Allura | 手写签名 Yoko | 站内 `字体/Allura-Regular.ttf`（同上复制） | SIL OFL 1.1（见 `OFL-Allura.txt`） |
+| Ma Shan Zheng | 首页人物廊的中文人名 | **Google Fonts**：`index.html` 的 `<link>` 里带 `family=Ma+Shan+Zheng`（不占仓库，全量 ttf 有 5.8 MB）；许可文本放在站内 `字体/OFL-mashanzheng.txt` | SIL OFL 1.1 |
 
 为什么中文衬线改用 Google Fonts：全量 `NotoSerifSC[wght].ttf` 有 24 MB，放进仓库会让手机首屏很慢；子集化要装 fonttools（装软件得老丁批）。Google Fonts 免费、不用装软件。
 

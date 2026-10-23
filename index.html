@@ -21,10 +21,10 @@
 <meta name="twitter:image" content="og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <style>
 /* ============ 字体 ============
-   中文衬线用 Google Fonts 的 Noto Serif SC（免费、按需下载、不占仓库）
+   中文衬线和人物廊人名书法体（Ma Shan Zheng）都用 Google Fonts（免费、按需下载、不占仓库）
    其余三个用站内 字体/ 目录下的文件，许可文件也在那里 */
 @font-face{font-family:'NotoSerif';src:url('字体/NotoSerif[wdth,wght].ttf') format('truetype');font-weight:100 900;font-display:swap}
 @font-face{font-family:'Allura';src:url('字体/Allura-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
@@ -111,32 +111,49 @@ a{color:inherit;text-decoration:none}
 .cover img{width:100%;aspect-ratio:16/9;object-fit:cover}
 .cover .cap{margin:10px 0 0;font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:rgba(34,52,76,.55)}
 
-/* ============ 3 人物卡片墙（卡 361：照 Arts & Culture 的一墙卡片做法） ============ */
-.people{position:relative;padding:92px 0 100px;border-bottom:1px solid var(--line);
-  background:var(--paper) url('图/人物廊-舆图底.webp') center/cover no-repeat}
-.people::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(246,239,223,.90) 0%,rgba(246,239,223,.64) 42%,rgba(246,239,223,.90) 100%)}
-.people .wrap{position:relative;z-index:1}
-.people .head{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;flex-wrap:wrap;margin-bottom:34px}
-.people h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.6vw,64px);line-height:1.02;letter-spacing:-.015em}
-.people h2 em{font-style:italic;color:var(--red)}
-.people .head .zh{margin:10px 0 0;font-family:var(--sc);font-size:17px;letter-spacing:.06em;color:rgba(34,52,76,.66)}
-.people .head .hint{margin:0 0 8px;font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--grey)}
+/* ============ 3 人物廊：叠卡扇形（卡404 定稿：电脑老丁定 20261023、手机子房过）
+   几何常量、指针门槛、手机渐变都在这一节；人物数据由 人物/建人物页.py 生成 */
+.people{position:relative;padding:96px 0 88px;border-bottom:1px solid var(--line);background:var(--paper)}
+.people .head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0 0 8px}
+.people h2{margin:0;font-family:var(--sc);font-weight:500;font-size:42px;line-height:1.15;letter-spacing:.01em}
+.people h2 em{font-family:var(--serif);font-style:italic;color:var(--red)}
+.people .head .zh{margin:8px 0 0;font-family:var(--sc);font-size:16px;color:rgba(34,52,76,.6)}
+.people .hint{margin:0;font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.people .hint.m{display:none}
 
-.wall{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(4,clamp(150px,13vw,192px));gap:12px}
-.card{position:relative;display:block;overflow:hidden;background:#c9b48f;border:1px solid rgba(34,52,76,.18)}
-.card img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1);filter:saturate(.96)}
-.card::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(20,26,38,0) 52%,rgba(20,26,38,.74) 100%)}
-.card .nm{position:absolute;left:14px;right:12px;bottom:12px;z-index:2;display:flex;flex-direction:column;gap:3px;color:#f6efdf}
-.card .nm .zh{font-family:var(--sc);font-weight:500;font-size:clamp(15px,1.4vw,19px);line-height:1.1;letter-spacing:.06em}
-.card .nm .en{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,239,223,.8)}
-.card.lead .nm .zh{font-size:clamp(24px,2.6vw,38px)}
-.card.lead .nm .en{font-size:11.5px}
-.card.narrow .nm{left:10px;right:8px}
-.card.narrow .nm .en{font-size:8.5px;letter-spacing:.12em}
-.card:hover img{transform:scale(1.045)}
-.card:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* 舞台：不裁切外框，靠 overflow-x hidden 保证没有横滚 */
+.fan{position:relative;height:520px;margin:26px 0 0;touch-action:pan-y;overflow:hidden}
+.fanbtn{position:absolute;top:50%;transform:translateY(-50%);z-index:300;width:44px;height:44px;border:1px solid rgba(34,52,76,.28);
+  background:var(--paper);color:var(--ink);border-radius:50%;font-size:17px;line-height:1;cursor:pointer;display:none;
+  align-items:center;justify-content:center;transition:background .2s,color .2s}
+.fanbtn:hover{background:var(--ink);color:var(--paper)}
+.fanbtn.prev{left:-6px}
+.fanbtn.next{right:-6px}
+.fan.hasmore .fanbtn{display:flex}
+
+.fcard{position:absolute;left:50%;top:50%;width:420px;aspect-ratio:420/454;
+  transform-origin:50% 50%;will-change:transform,opacity;
+  transition:transform .55s cubic-bezier(.2,.7,.2,1), opacity .45s ease, box-shadow .45s ease;
+  background:#c9b48f;border:1px solid rgba(34,52,76,.18);overflow:hidden;
+  box-shadow:0 18px 38px -22px rgba(27,38,56,.55)}
+.fcard .pic{position:absolute;inset:0}
+.fcard .pic img{width:100%;height:100%;object-fit:cover}
+.fcard::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(11,18,28,.94) 0%,rgba(11,18,28,.66) 26%,rgba(11,18,28,.22) 46%,rgba(11,18,28,0) 64%)}
+.fcard .txt{position:absolute;left:26px;right:26px;bottom:24px;z-index:2;color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.45)}
+/* 名字只在最前那张出现：侧卡被前面的卡压掉一半，名字跟着被切，很乱（子房 20261023 定） */
+.fcard .nm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;opacity:0;transition:opacity .35s ease .1s}
+.fcard.focus .nm{opacity:1}
+/* 最前那张：中文名用马善政毛笔楷、放大、白字（老丁 20261023）；英文名照旧，排在旁边 */
+.fcard .nm .zh{font-family:'Ma Shan Zheng','MaShanZheng',var(--sc);font-weight:400;font-size:40px;letter-spacing:.04em;line-height:1.05;margin:0;color:#fff}
+.fcard .nm .en{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.fcard .line{margin:12px 0 0;font-family:var(--body);font-size:15.5px;line-height:1.66;color:#fff;
+  opacity:0;transform:translateY(6px);transition:opacity .45s ease .06s, transform .45s ease .06s}
+.fcard .line .lzh{display:block;margin-top:6px;font-family:var(--sc);font-size:14.5px;color:rgba(255,255,255,.9)}
+.fcard.focus .line{opacity:1;transform:none}
+.fcard.focus{box-shadow:0 30px 60px -26px rgba(27,38,56,.7)}
+.fcard:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 
 /* ============ 4 36 计进度条（整段 ≤ 220px） ============ */
 .bar{padding:48px 0 52px;border-bottom:1px solid var(--line)}
@@ -203,19 +220,25 @@ a{color:inherit;text-decoration:none}
   .latest .acts .btn{flex:1 1 46%}
   .cover .cap{font-size:9px;letter-spacing:.14em;margin-top:8px}
 
-  /* 人物卡片墙：两列，主角卡占两列两行，其余一格 */
-  .people{padding:52px 0 56px}
-  .people .head{margin-bottom:22px}
-  .people h2{font-size:32px}
+  /* 人物廊：手机上左右滑动换焦点（子房 20261023 过） */
+  .people{padding:64px 0 56px}
+  .people .head{display:block}
+  .people h2{font-size:30px}
   .people .head .zh{font-size:14px;margin-top:8px}
-  .people .head .hint{display:none}
-  .wall{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:150px;gap:8px}
-  .card{grid-column:auto!important;grid-row:auto!important}
-  .card.lead{grid-column:1/span 2!important;grid-row:span 2!important}
-  .card .nm{left:10px;right:8px;bottom:9px}
-  .card .nm .zh{font-size:16px}
-  .card .nm .en{font-size:9px;letter-spacing:.14em}
-  .card.lead .nm .zh{font-size:28px}
+  .people .hint{margin-top:10px}
+  .people .hint.pc{display:none}
+  .people .hint.m{display:block}
+  .fan{height:430px}
+  .fcard{width:270px}
+  .fcard .txt{left:18px;right:18px;bottom:16px}
+  .fcard .nm .zh{font-size:30px}
+  .fcard .nm .en{font-size:9.5px;letter-spacing:.18em}
+  /* 手机：只留名字＋英文简介一行（超出省略），中文简介不显示 */
+  .fcard .line{font-size:14.5px;line-height:1.6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .fcard .line .lzh{display:none}
+  /* 渐变只压卡片下面三分之一，别盖住脸（子房 20261023） */
+  .fcard::after{inset:auto 0 0 0;height:33%;
+    background:linear-gradient(to top,rgba(11,18,28,.95) 0%,rgba(11,18,28,.62) 58%,rgba(11,18,28,0) 100%)}
 
   .bar{padding:14px 0 18px}
   .track{display:grid;grid-template-columns:repeat(6,24px);gap:4px;justify-content:start}
@@ -234,11 +257,9 @@ a{color:inherit;text-decoration:none}
   .foot .tag{font-size:26px}
 }
 
-/* 矮屏（笔记本 13 寸外接竖屏等）：卡片墙的行高收一点，不溢出 */
+/* 矮屏（笔记本 13 寸外接竖屏等）：叠卡舞台收一点高度，卡片本身尺寸不动 */
 @media (min-width:761px) and (max-height:780px){
-  .people .head h2{font-size:clamp(32px,4.2vw,54px)}
-  .people .head .zh{margin-top:8px;font-size:15px}
-  .wall{grid-template-rows:repeat(4,clamp(132px,11.4vw,168px))}
+  .fan{height:480px;margin-top:18px}
 }
 </style>
 </head>
@@ -254,7 +275,9 @@ a{color:inherit;text-decoration:none}
       <li class="hide"><a href="#all">All 36</a></li>
       <li><a href="#about">About</a></li>
     </ul>
-    <div class="count"><b>2</b> / 36 out</div>
+    <div class="count"><b><!-- 计数:开始 -->
+10
+<!-- 计数:结束 --></b> / 36 out</div>
   </div>
 </header>
 
@@ -274,33 +297,35 @@ a{color:inherit;text-decoration:none}
 <!-- ===== 2 最新一计 ===== -->
 <section class="latest" id="latest">
   <div class="wrap">
-    <div class="seclabel"><span class="no">No. 02 / 36</span><span class="ln"></span><span class="meta">Latest stratagem</span></div>
+    <!-- 最新一计:开始（生成首页进度.py 生成，别手改） -->
+<div class="seclabel"><span class="no">No. 10 / 36</span><span class="ln"></span><span class="meta">Latest stratagem</span></div>
     <div class="grid">
       <div>
         <h2>
           <span class="pz">
-            <span class="ch"><span class="h">围</span><span class="p">wéi</span></span>
-            <span class="ch"><span class="h">魏</span><span class="p">Wèi</span></span>
-            <span class="ch"><span class="h">救</span><span class="p">jiù</span></span>
-            <span class="ch"><span class="h">赵</span><span class="p">Zhào</span></span>
+            <span class="ch"><span class="h">笑</span><span class="p">xiào</span></span>
+            <span class="ch"><span class="h">里</span><span class="p">lǐ</span></span>
+            <span class="ch"><span class="h">藏</span><span class="p">cáng</span></span>
+            <span class="ch"><span class="h">刀</span><span class="p">dāo</span></span>
           </span>
         </h2>
-        <div class="en-name">Besiege Wei to rescue Zhao</div>
-        <p class="one">Wei's best army had Zhao's capital surrounded. Qi never went to the city — it marched on Wei's own capital instead, and the siege lifted itself.</p>
+        <div class="en-name">Sweet on the Outside</div>
+        <p class="one">A king of Chu loved the woman another king sent him. His queen dressed her, praised her, gave her everything — then told her the king hated her nose. She covered it. She lost it.</p>
         <div class="acts">
-          <a class="btn red" href="https://www.youtube.com/watch?v=u353q4sJoHI">Watch the video</a>
-          <a class="btn ghost" href="2/">Free PDF</a>
+          <a class="btn red" href="https://youtu.be/LKNJYKkkzGU">Watch the video</a>
+          <a class="btn ghost" href="10/">Free PDF</a>
         </div>
       </div>
       <figure class="cover">
-        <div class="pic"><img src="图/sc-017.webp" alt="Wei's army on the road to Handan"></div>
-        <figcaption class="cap">Wei's army on the road to Handan · 354 BC</figcaption>
+        <div class="pic"><img src="图/第10计-封面.webp" alt="Zheng Xiu and the new wife, Warring States"></div>
+        <figcaption class="cap">Zheng Xiu and the new wife · Warring States</figcaption>
       </figure>
     </div>
+<!-- 最新一计:结束 -->
   </div>
 </section>
 
-<!-- ===== 3 人物卡片墙（卡 361；卡片由 人物/建人物页.py 生成，改数据别改这里） ===== -->
+<!-- ===== 3 人物廊（叠卡扇形；卡片数据由 人物/建人物页.py 从 人物.json 生成，改数据别改这里） ===== -->
 <section class="people" id="people">
   <div class="wrap">
     <div class="head">
@@ -308,19 +333,44 @@ a{color:inherit;text-decoration:none}
         <h2>Who's your <em>favorite</em>?</h2>
         <p class="zh">你最喜欢谁？</p>
       </div>
-      <p class="hint">Tap a face · 点一张脸</p>
+      <p class="hint pc">Hover to bring one forward · 移到谁身上谁就到前面</p>
+      <p class="hint m">SWIPE · 左右滑动</p>
     </div>
 <!-- 人物廊:开始（人物/建人物页.py 生成，别手改） -->
-<div class="wall">
-<a class="card lead" href="people/sun-bin/" style="grid-column:1/span 3;grid-row:1/span 2"><img src="图/p-sun-bin.webp" alt="孙膑 Sun Bin" loading="lazy" style="object-position:50% 46%"><span class="nm"><span class="zh">孙膑</span><span class="en">Sun Bin</span></span></a>
-<a class="card" href="people/pang-juan/" style="grid-column:4/span 2;grid-row:1/span 2"><img src="图/p-pang-juan.webp" alt="庞涓 Pang Juan" loading="lazy" style="object-position:50% 46%"><span class="nm"><span class="zh">庞涓</span><span class="en">Pang Juan</span></span></a>
-<a class="card" href="people/king-wei-of-qi/" style="grid-column:6/span 2;grid-row:1/span 2"><img src="图/p-king-wei-of-qi-v3.webp" alt="齐威王 King Wei of Qi" loading="lazy" style="object-position:66% 0%"><span class="nm"><span class="zh">齐威王</span><span class="en">King Wei of Qi</span></span></a>
-<a class="card narrow" href="people/yang-jian/" style="grid-column:8/span 1;grid-row:1/span 2"><img src="图/p-yang-jian-v2.webp" alt="杨坚 Yang Jian" loading="lazy" style="object-position:64% 0%"><span class="nm"><span class="zh">杨坚</span><span class="en">Yang Jian</span></span></a>
-<a class="card" href="people/tian-ji/" style="grid-column:1/span 2;grid-row:3/span 2"><img src="图/p-tian-ji.webp" alt="田忌 Tian Ji" loading="lazy" style="object-position:50% 46%"><span class="nm"><span class="zh">田忌</span><span class="en">Tian Ji</span></span></a>
-<a class="card" href="people/he-ruobi/" style="grid-column:3/span 2;grid-row:3/span 2"><img src="图/p-he-ruobi.webp" alt="贺若弼 He Ruobi" loading="lazy" style="object-position:50% 42%"><span class="nm"><span class="zh">贺若弼</span><span class="en">He Ruobi</span></span></a>
-<a class="card" href="people/chen-shubao/" style="grid-column:5/span 2;grid-row:3/span 2"><img src="图/p-chen-shubao.webp" alt="陈叔宝 Chen Shubao" loading="lazy" style="object-position:50% 48%"><span class="nm"><span class="zh">陈叔宝</span><span class="en">Chen Shubao</span></span></a>
-<a class="card" href="people/zheng-huangong/" style="grid-column:7/span 2;grid-row:3/span 2"><img src="图/p-zheng-huangong.webp" alt="郑桓公 Duke Huan of Zheng" loading="lazy" style="object-position:61% 0%"><span class="nm"><span class="zh">郑桓公</span><span class="en">Duke Huan of Zheng</span></span></a>
+<div class="fan" id="fan" role="list">
+  <button class="fanbtn prev" type="button" aria-label="上一张">‹</button>
+  <button class="fanbtn next" type="button" aria-label="下一张">›</button>
 </div>
+<script>
+/* 人物数据:开始 */
+const PEOPLE = [
+  {id:'sun-bin', zh:'孙膑', en:'Sun Bin', img:'图/p-sun-bin.webp', pos:'50% 46%',
+   line:"Qi's strategist, a descendant of Sun Wu. He plans from a wooden cart, never on the field.",
+   lzh:'齐国谋士，孙武之后，在小木车上出主意，从不上阵。'},
+  {id:'pang-juan', zh:'庞涓', en:'Pang Juan', img:'图/p-pang-juan.webp', pos:'50% 46%',
+   line:"Wei's general. His troops have Handan surrounded when news comes that Wei's own capital is in danger.",
+   lzh:'魏国将军，精兵围着邯郸，忽然听说都城危急。'},
+  {id:'king-wei-of-qi', zh:'齐威王', en:'King Wei of Qi', img:'图/p-king-wei-of-qi-v3.webp', pos:'66% 0%',
+   line:"The ruler of Qi. He asked Sun Bin about the art of war, took him as his teacher, and sent him to rescue Zhao.",
+   lzh:'齐国国君，问孙膑兵法、拜他为师；救赵就是他派孙膑去的。'},
+  {id:'yang-jian', zh:'杨坚', en:'Yang Jian', img:'图/p-yang-jian-v2.webp', pos:'64% 0%',
+   line:"Emperor Wen of Sui. In 589 his armies cross the river and end the Chen dynasty.",
+   lzh:'隋朝开国皇帝，589 年南下灭陈。'},
+  {id:'tian-ji', zh:'田忌', en:'Tian Ji', img:'图/p-tian-ji.webp', pos:'50% 46%',
+   line:"Qi's general. His first instinct: march straight at Handan and fight — the obvious plan.",
+   lzh:'齐国将军，第一反应是直奔邯郸、正面打。'},
+  {id:'he-ruobi', zh:'贺若弼', en:'He Ruobi', img:'图/p-he-ruobi.webp', pos:'50% 42%',
+   line:"A Sui general on the Yangtze frontier. He swapped his garrison in plain sight until Chen stopped watching.",
+   lzh:'隋朝将领，在长江前线反复换防，让陈军看惯了。'},
+  {id:'chen-shubao', zh:'陈叔宝', en:'Chen Shubao', img:'图/p-chen-shubao.webp', pos:'50% 48%',
+   line:"The last emperor of Chen, in Jiankang. Across the river, the frontier looked quiet to him.",
+   lzh:'陈朝末代皇帝，隔着江，他觉得前线很安静。'},
+  {id:'zheng-huangong', zh:'郑桓公', en:'Duke Huan of Zheng', img:'图/p-zheng-huangong.webp', pos:'61% 0%',
+   line:"The ruler of Zheng. He wanted Kuai's land, so he wrote its best men a promise and buried it outside their gate.",
+   lzh:'郑国国君，想要郐国的地，就把郐国能人的名字写成盟书，埋在城门外。'}
+];
+/* 人物数据:结束 */
+</script>
 <!-- 人物廊:结束 -->
   </div>
 </section>
@@ -329,7 +379,9 @@ a{color:inherit;text-decoration:none}
 <section class="bar" id="all">
   <div class="wrap">
     <div class="track" id="track"></div>
-    <div class="legend">2 of 36 out · a new one every week</div>
+    <div class="legend"><!-- 进度条小字:开始 -->
+10 of 36 out · One at a time
+<!-- 进度条小字:结束 --></div>
   </div>
 </section>
 
@@ -364,13 +416,127 @@ a{color:inherit;text-decoration:none}
 </footer>
 
 <script>
-/* 人物廊卡片墙：页面里是 人物/建人物页.py 生成好的静态卡片，首页不再跑脚本。 */
+/* ---- 人物廊：叠卡扇形（卡404 定稿；数据是从 人物/建人物页.py 生成的 PEOPLE） ---- */
+(function(){
+  const fan = document.getElementById('fan');
+  if (!fan || typeof PEOPLE === 'undefined' || !PEOPLE.length) return;
+  const prevBtn = fan.querySelector('.prev');
+  const nextBtn = fan.querySelector('.next');
+  const MAX_VISIBLE = 9;         // 一排最多 9 张，再多左右切
+  const MOBILE_VISIBLE = 3;      // 手机上中间 1 张＋两侧各 1 张，其余靠滑
+  const OVERLAP_PC = 0.28;       // 相邻两张中心距 = (半宽之和) × 该系数，数越小叠得越紧
+  const OVERLAP_M = 0.22;        // 手机叠得更紧，才放得进 390 宽
+  const SIZES = [420, 362, 328, 304, 285];   // 焦点 420×454，两侧 362×391 → 328×354 → 304×328 → 285×307
+
+  const cards = [];
+  let focus = 0;          // 默认第一张在中间最大
+  let settled = 0;
+  const n = PEOPLE.length;
+
+  function isMobile(){ return window.matchMedia('(max-width:760px)').matches; }
+  function maxVisibleLimit(){ return Math.floor((isMobile() ? MOBILE_VISIBLE : MAX_VISIBLE) / 2); }
+  function maxD(){ return Math.min(maxVisibleLimit(), Math.floor(n / 2)); }
+  function scaleFor(d){ return SIZES[Math.min(Math.abs(d), SIZES.length - 1)] / SIZES[0]; }
+  function widthFor(d){ return SIZES[Math.min(Math.abs(d), SIZES.length - 1)]; }
+  /* 中心横移：相邻两张按 (半宽和)×OVERLAP 累加，远处按最后一张宽度续推 */
+  function xFor(d){
+    const sgn = d < 0 ? -1 : 1;
+    const ov = isMobile() ? OVERLAP_M : OVERLAP_PC;
+    let x = 0, prevW = widthFor(0);
+    for (let k = 1; k <= Math.abs(d); k++){
+      const w = widthFor(k);
+      x += ((prevW + w) / 2) * ov;
+      prevW = w;
+    }
+    return sgn * x;
+  }
+
+  function layout(){
+    const m = maxD();
+    const k = (cards[0] ? cards[0].offsetWidth : SIZES[0]) / SIZES[0];
+    cards.forEach((c, i) => {
+      let d = i - focus;
+      const half = Math.floor(n / 2);
+      if (d > half) d -= n;               // 首尾绕圈，两边都排得满
+      if (d < -half) d += n;
+      const vis = Math.abs(d) <= m;
+      c.style.transform = 'translate(-50%,-50%) translateX(' + (xFor(d) * k).toFixed(1) + 'px) scale(' + scaleFor(d).toFixed(4) + ')';
+      c.style.zIndex = String(200 - Math.abs(d));
+      c.style.opacity = vis ? '1' : '0';
+      c.style.pointerEvents = vis ? 'auto' : 'none';
+      c.classList.toggle('focus', d === 0);
+      c.setAttribute('aria-hidden', vis ? 'false' : 'true');
+    });
+    if (n > MAX_VISIBLE) fan.classList.add('hasmore'); else fan.classList.remove('hasmore');
+  }
+
+  PEOPLE.forEach((p, i) => {
+    const a = document.createElement('a');
+    a.className = 'fcard';
+    a.setAttribute('role', 'listitem');
+    a.href = 'people/' + p.id + '/';
+    a.tabIndex = 0;
+    a.innerHTML =
+      '<div class="pic"><img src="' + p.img + '" alt="' + p.zh + ' ' + p.en + '" loading="lazy" style="object-position:' + p.pos + '"></div>' +
+      '<div class="txt"><div class="nm"><span class="zh">' + p.zh + '</span><span class="en">' + p.en + '</span></div>' +
+      '<p class="line">' + p.line + '<span class="lzh">' + p.lzh + '</span></p></div>';
+    a.addEventListener('click', (e) => {           // 不是最前那张：先滑到最前，不跳页
+      if (i !== focus){ e.preventDefault(); focus = i; settled = i; layout(); }
+    });
+    a.addEventListener('focus', () => { if (i !== focus){ focus = i; settled = i; layout(); } });
+    fan.appendChild(a);
+    cards.push(a);
+  });
+  fan.addEventListener('mouseleave', () => { if (focus !== settled){ focus = settled; layout(); } });
+
+  /* 鼠标：指到哪张，哪张滑到最前。用「移动超过 45px 才算换目标」——
+     否则卡片一动，停在原地的指针会落到别的卡上，来回抖。 */
+  let lastPt = null;
+  fan.addEventListener('mousemove', (e) => {
+    if (lastPt && Math.hypot(e.clientX - lastPt.x, e.clientY - lastPt.y) < 45) return;
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const card = el && el.closest ? el.closest('.fcard') : null;
+    if (!card) return;
+    const i = cards.indexOf(card);
+    if (i < 0) return;
+    lastPt = {x: e.clientX, y: e.clientY};
+    if (i !== focus) { focus = i; layout(); }
+  });
+
+  function step(k){ focus = (focus + k + n) % n; settled = focus; layout(); }
+  if (prevBtn) prevBtn.addEventListener('click', () => step(-1));
+  if (nextBtn) nextBtn.addEventListener('click', () => step(1));
+
+  /* 手机：左右滑，滑到中间那张自动变大；只有最前那张点得进去 */
+  let tx = null, ty = null;
+  fan.addEventListener('touchstart', (e) => { const t = e.changedTouches[0]; tx = t.clientX; ty = t.clientY; }, {passive:true});
+  fan.addEventListener('touchend', (e) => {
+    if (tx === null) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - tx, dy = t.clientY - ty;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+    tx = ty = null;
+  }, {passive:true});
+
+  window.addEventListener('resize', layout);
+  layout();
+})();
 
 /* ---- 36 计进度条 ---- */
+/* 进度条数据:开始（生成首页进度.py 生成，别手改） */
 const out = {
-  1: {zh:'瞒天过海', href:'https://www.youtube.com/watch?v=hRMQLKflLd4'},
-  2: {zh:'围魏救赵', href:'#latest'}
+  1: {zh:'瞒天过海', href:'1/'},
+  2: {zh:'围魏救赵', href:'2/'},
+  3: {zh:'借刀杀人', href:'3/'},
+  4: {zh:'以逸待劳', href:'4/'},
+  5: {zh:'趁火打劫', href:'5/'},
+  6: {zh:'声东击西', href:'6/'},
+  7: {zh:'无中生有', href:'7/'},
+  8: {zh:'暗渡陈仓', href:'8/'},
+  9: {zh:'隔岸观火', href:'9/'},
+  10: {zh:'笑里藏刀', href:'10/'}
 };
+/* 进度条数据:结束 */
 const track = document.getElementById('track');
 for (let i = 1; i <= 36; i++){
   const no = String(i).padStart(2, '0');

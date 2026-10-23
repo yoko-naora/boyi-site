@@ -4,7 +4,7 @@
 输入：人物/人物.json（唯一数据源：肖像、站位、一句话、故事、出自第几计）
 输出：
   1. people/<id>/index.html        每个人的静态页（首屏整屏大图＋超大名字，往下故事、出自第几计）
-  2. index.html 里两行标记之间的卡片墙 HTML（首页"一墙人物卡片"）
+  2. index.html 里两行标记之间的人物廊（叠卡扇形的舞台＋PEOPLE 数据，卡404 定稿）
 
 用法：python3 人物/建人物页.py
 规矩：只吃现有人物图，不新出图；生成物别手改，改 JSON 再跑。
@@ -31,22 +31,38 @@ def load():
         return json.load(f)
 
 
-# ---------- 首页卡片墙 ----------
-def wall_html(data):
-    out = [MARK_A, '<div class="wall">']
-    for i, p in enumerate(data['人物']):
-        col, row = p['cell']
-        cs, rs = p['span']
-        cls = 'card' + (' lead' if i == 0 else '') + (' narrow' if cs == 1 else '')
-        out.append(
-            '<a class="{cls}" href="people/{id}/" style="grid-column:{col}/span {cs};grid-row:{row}/span {rs}">'
-            '<img src="{img}" alt="{zh} {en}" loading="lazy" style="object-position:{pos}">'
-            '<span class="nm"><span class="zh">{zh}</span><span class="en">{en}</span></span>'
-            '</a>'.format(cls=cls, id=esc(p['id']), col=col, cs=cs, row=row, rs=rs,
-                          img=esc(p['img']), zh=esc(p['zh']), en=esc(p['en']), pos=p['pos']))
-    out.append('</div>')
-    out.append(MARK_B)
-    return '\n'.join(out)
+# ---------- 首页人物廊（叠卡扇形，卡404 定稿） ----------
+def js_str(s):
+    return s.replace('\\', '\\\\').replace("'", "\\'")
+
+
+def fan_html(data):
+    """首页人物廊：舞台＋按钮（静态）＋ PEOPLE 数据（由 人物.json 生成）。
+    扇形交互在 index.html 底部脚本里；这里只管数据，别手改生成区。"""
+    rows = []
+    people = data['人物']
+    for p in people:
+        line = (p.get('line') or '').replace('"', '\\"')
+        rows.append(
+            "  {id:'%s', zh:'%s', en:'%s', img:'%s', pos:'%s',\n"
+            "   line:\"%s\",\n"
+            "   lzh:'%s'}"
+            % (js_str(p['id']), js_str(p['zh']), js_str(p['en']), p['img'], p.get('pos', '50% 50%'),
+               line, js_str(p.get('lineZh', ''))))
+    block = 'const PEOPLE = [\n' + ',\n'.join(rows) + '\n];'
+    return '\n'.join([
+        MARK_A,
+        '<div class="fan" id="fan" role="list">',
+        '  <button class="fanbtn prev" type="button" aria-label="上一张">‹</button>',
+        '  <button class="fanbtn next" type="button" aria-label="下一张">›</button>',
+        '</div>',
+        '<script>',
+        '/* 人物数据:开始 */',
+        block,
+        '/* 人物数据:结束 */',
+        '</script>',
+        MARK_B,
+    ])
 
 
 # ---------- 人物页 ----------
@@ -189,10 +205,10 @@ def main():
         page = f.read()
     if MARK_A not in page or MARK_B not in page:
         sys.exit('index.html 里找不到人物廊标记，先在首页放好标记再来跑')
-    new = re.sub(re.escape(MARK_A) + r'.*?' + re.escape(MARK_B), lambda m: wall_html(data), page, flags=re.S)
+    new = re.sub(re.escape(MARK_A) + r'.*?' + re.escape(MARK_B), lambda m: fan_html(data), page, flags=re.S)
     with open(idx, 'w', encoding='utf-8') as f:
         f.write(new)
-    print('首页卡片墙已写入 index.html（%d 张卡）' % len(data['人物']))
+    print('首页人物廊已写入 index.html（叠卡扇形，%d 人）' % len(data['人物']))
 
 
 if __name__ == '__main__':
