@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store — 博弈 Bóyì</title>
+<meta name="robots" content="noindex,nofollow"><!-- 卡627：收费页全套不进搜索结果，只能靠网址进 -->
+<!-- 设计稿（卡588再补充）：由 模板/总页.html ＋ 数据/系列-*.json 自动生成；/store/ 列所有系列，
+     每个系列指到 /store/<slug>/。按钮都是站内链接（真链接），其余占位照旧。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* 共享样式（三个模板共用）：配色字体照博弈站现有 boyi-site/index.html 的 :root */
+:root{
+  --paper:#f6efdf; --paper-2:#fbf5e8; --ink:#22344c; --red:#9e3328; --grey:#8a8f98;
+  --line:rgba(34,52,76,.16); --line-2:rgba(34,52,76,.09);
+  --serif:'Noto Serif SC','Noto Serif',Georgia,serif;
+  --sans:'Oswald','Helvetica Neue',Arial,sans-serif;
+  --brush:'Ma Shan Zheng',serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 56px}
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.30em;text-transform:uppercase;color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;
+  font-family:var(--sans);font-size:12.5px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;
+  border:1px solid rgba(34,52,76,.28);background:none;cursor:pointer;white-space:nowrap}
+.btn.red{background:var(--red);border-color:var(--red);color:#fdf7ea}
+.btn.ghost{color:var(--ink)}
+.btn .arw{font-family:var(--serif);font-size:15px;letter-spacing:0}
+.tag{display:inline-block;margin-left:8px;padding:2px 8px;border:1px solid rgba(158,51,40,.45);color:var(--red);
+  font-family:var(--sans);font-size:9.5px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;vertical-align:2px;white-space:nowrap}
+.nav{border-bottom:1px solid var(--line)}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0}
+.wordmark{display:flex;align-items:baseline;gap:10px}
+.wordmark .hz{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.10em}
+.wordmark .lat{font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.34em;text-transform:uppercase;color:var(--grey)}
+.nav .back{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.20em;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--line)}
+.foot{border-top:1px solid var(--line);padding:22px 0 34px}
+.foot .row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.foot a{border-bottom:1px solid var(--line)}
+.sechead{text-align:center;margin-bottom:34px}
+.sechead h2{font-size:34px;font-weight:600;margin:10px 0 12px;line-height:1.3}
+.sechead p{font-size:16px;color:#3b4a5e;margin:0 auto;line-height:1.7;max-width:660px}
+@media (max-width:760px){
+  .wrap{padding:0 20px}
+  .sechead h2{font-size:25px}
+  .sechead p{font-size:15px}
+  /* 卡592 必改1：390px 下「博弈」不许被挤成上下两字。
+     做法：品牌拆成两个独立项（汉字一行左、英文副标独占第二行），返回入口靠右、不折行。
+     电脑页头不受影响（本条只在手机断点里）。 */
+  .nav .row{flex-wrap:wrap;align-items:baseline;gap:3px 12px;padding:15px 0}
+  .wordmark{display:contents}
+  .wordmark .hz{order:1;flex:0 0 auto;white-space:nowrap;font-size:21px;letter-spacing:.08em}
+  .nav .back{order:2;flex:0 0 auto;margin-left:auto;white-space:nowrap;font-size:10px;letter-spacing:.14em}
+  .wordmark .lat{order:3;flex:0 0 100%;font-size:9.5px;letter-spacing:.20em;line-height:1.4}
+}
+
+/* ---- 总页 ---- */
+.wrap{max-width:900px}
+.head{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.head h1{font-size:44px;line-height:1.2;font-weight:600;margin:12px 0 14px;text-wrap:balance}
+.head .lead{font-size:19px;line-height:1.7;color:#3b4a5e;margin:0;max-width:640px}
+.cards{padding:44px 0 0;display:grid;gap:22px}
+.scard{border:1px solid var(--ink);background:var(--paper-2);padding:30px 32px;
+  display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.scard .k{font-family:var(--sans);font-size:10.5px;letter-spacing:.20em;text-transform:uppercase;color:var(--red)}
+.scard h2{font-size:26px;font-weight:600;margin:10px 0 8px;line-height:1.3}
+.scard p{margin:0;font-size:15.5px;line-height:1.7;color:#3b4a5e;max-width:560px}
+.soon{margin-top:16px;padding:18px 20px;border:1px dashed var(--line);font-size:14px;color:#3b4a5e;line-height:1.6;background:none}
+@media (max-width:760px){
+  .head{padding:40px 0 28px}
+  .head h1{font-size:30px}
+  .head .lead{font-size:16.5px}
+  .cards{padding-top:30px}
+  .scard{grid-template-columns:1fr;padding:22px 20px;gap:16px}
+  .scard h2{font-size:21px}
+  .scard .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="wrap"><div class="row">
+  <div class="wordmark"><span class="hz">博弈</span><span class="lat">Bóyì · The 36 Stratagems</span></div>
+  <a class="back" href="/">← Back to the site</a>
+</div></div></div>
+
+<div class="head"><div class="wrap">
+  <div class="kicker">Store</div>
+  <h1>One series at a time.</h1>
+  <p class="lead">Each series ends up as a book you can keep. Nothing already free becomes paid.</p>
+</div></div>
+
+<div class="wrap">
+  <div class="cards">
+    <div class="scard">
+      <div>
+        <div class="k">Early bird · $12</div>
+        <h2>The 36 Stratagems</h2>
+        <p>Chinese kids learn 36 stratagems. Now you can too — one at a time, with a free PDF for each.</p>
+      </div>
+      <a class="btn red" href="36/">See the collection <span class="arw">→</span></a>
+    </div>
+  </div>
+  <div class="soon">More series as they finish. Each one keeps its free pages free.</div>
+</div>
+
+<div class="foot" style="margin-top:56px"><div class="wrap"><div class="row">
+  <span>© 2026 博弈 Bóyì · The 36 Stratagems</span>
+  <span>Free pages stay free</span>
+</div></div></div>
+
+</body>
+</html>

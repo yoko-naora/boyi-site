@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 36 Stratagems · Complete Collection — 博弈 Bóyì</title>
+<meta name="description" content="All 36 stratagems collected into one book. Pre-order at $12 (regular $19). Every stratagem keeps its free PDF.">
+<meta name="robots" content="noindex,nofollow"><!-- 卡627：收费页不进搜索结果，只能靠网址进 -->
+<!-- 设计稿（卡588＋再补充）：由 模板/收费页.html ＋ 数据/系列-36.json 生成，不要手改这个文件。
+     卡627 上线测试：页面已上 boyi.snsaladdin.com/store/，但 href="#" 仍是占位（按钮文字 Coming soon）、
+     不接付款、不建账号、不收任何资料。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Oswald:wght@300;400;500&family=Ma+Shan_Zheng&display=swap" rel="stylesheet">
+<style>
+/* 共享样式（三个模板共用）：配色字体照博弈站现有 boyi-site/index.html 的 :root */
+:root{
+  --paper:#f6efdf; --paper-2:#fbf5e8; --ink:#22344c; --red:#9e3328; --grey:#8a8f98;
+  --line:rgba(34,52,76,.16); --line-2:rgba(34,52,76,.09);
+  --serif:'Noto Serif SC','Noto Serif',Georgia,serif;
+  --sans:'Oswald','Helvetica Neue',Arial,sans-serif;
+  --brush:'Ma Shan Zheng',serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 56px}
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.30em;text-transform:uppercase;color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;
+  font-family:var(--sans);font-size:12.5px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;
+  border:1px solid rgba(34,52,76,.28);background:none;cursor:pointer;white-space:nowrap}
+.btn.red{background:var(--red);border-color:var(--red);color:#fdf7ea}
+.btn.ghost{color:var(--ink)}
+.btn .arw{font-family:var(--serif);font-size:15px;letter-spacing:0}
+.tag{display:inline-block;margin-left:8px;padding:2px 8px;border:1px solid rgba(158,51,40,.45);color:var(--red);
+  font-family:var(--sans);font-size:9.5px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;vertical-align:2px;white-space:nowrap}
+.nav{border-bottom:1px solid var(--line)}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0}
+.wordmark{display:flex;align-items:baseline;gap:10px}
+.wordmark .hz{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.10em}
+.wordmark .lat{font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.34em;text-transform:uppercase;color:var(--grey)}
+.nav .back{font-family:var(--sans);font-size:11.5px;font-weight:300;letter-spacing:.20em;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--line)}
+.foot{border-top:1px solid var(--line);padding:22px 0 34px}
+.foot .row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.foot a{border-bottom:1px solid var(--line)}
+.sechead{text-align:center;margin-bottom:34px}
+.sechead h2{font-size:34px;font-weight:600;margin:10px 0 12px;line-height:1.3}
+.sechead p{font-size:16px;color:#3b4a5e;margin:0 auto;line-height:1.7;max-width:660px}
+@media (max-width:760px){
+  .wrap{padding:0 20px}
+  .sechead h2{font-size:25px}
+  .sechead p{font-size:15px}
+  /* 卡592 必改1：390px 下「博弈」不许被挤成上下两字。
+     做法：品牌拆成两个独立项（汉字一行左、英文副标独占第二行），返回入口靠右、不折行。
+     电脑页头不受影响（本条只在手机断点里）。 */
+  .nav .row{flex-wrap:wrap;align-items:baseline;gap:3px 12px;padding:15px 0}
+  .wordmark{display:contents}
+  .wordmark .hz{order:1;flex:0 0 auto;white-space:nowrap;font-size:21px;letter-spacing:.08em}
+  .nav .back{order:2;flex:0 0 auto;margin-left:auto;white-space:nowrap;font-size:10px;letter-spacing:.14em}
+  .wordmark .lat{order:3;flex:0 0 100%;font-size:9.5px;letter-spacing:.20em;line-height:1.4}
+}
+
+/* ---- 收费页 ---- */
+.hero{padding:74px 0 54px;text-align:center}
+.hero .brush{font-family:var(--brush);font-size:26px;color:var(--red);letter-spacing:.16em;margin-bottom:18px}
+.hero h1{font-size:52px;line-height:1.18;font-weight:600;margin:0 0 20px;letter-spacing:.01em;text-wrap:balance}
+.hero .lead{font-size:20px;line-height:1.75;color:#3b4a5e;max-width:660px;margin:0 auto 40px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust div{padding:22px 10px;text-align:center}
+.trust div+div{border-left:1px solid var(--line)}
+.trust b{display:block;font-family:var(--sans);font-size:30px;font-weight:400;letter-spacing:.02em;line-height:1.1}
+.trust span{display:block;margin-top:8px;font-size:13px;color:var(--grey);line-height:1.5}
+.plans{padding:66px 0 10px}
+.plancard{max-width:560px;margin:0 auto;background:var(--paper-2);border:1px solid var(--ink);padding:38px 38px 34px;position:relative}
+.plancard .ribbon{position:absolute;top:-1px;right:-1px;background:var(--red);color:#fdf7ea;
+  font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;padding:8px 14px}
+.plancard h2{font-size:27px;font-weight:600;margin:8px 0 6px;line-height:1.3}
+.plancard .sub{font-size:14.5px;color:var(--grey);margin:0 0 26px}
+.pricerow{display:flex;align-items:baseline;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.pricerow .now{font-family:var(--sans);font-size:56px;font-weight:400;line-height:1;color:var(--red)}
+.pricerow .was{font-size:20px;color:var(--grey);text-decoration:line-through;text-decoration-thickness:1.5px}
+.pricerow .cur{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.pricenote{font-size:15px;color:#3b4a5e;margin:16px 0 22px;line-height:1.65}
+.plancard ul{list-style:none;margin:0 0 26px;padding:0}
+.plancard li{display:flex;gap:12px;padding:9px 0;font-size:16px;line-height:1.6;align-items:flex-start}
+.plancard li .ck{color:var(--red);font-weight:600;flex:0 0 auto}
+.plancard .btn{width:100%}
+.plancard .fine{margin:14px 0 0;text-align:center;font-family:var(--sans);font-size:11px;font-weight:300;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.compare{padding:70px 0 0}
+.cmp{border-top:1px solid var(--ink)}
+.cmp .row{display:grid;grid-template-columns:1fr 170px 210px;align-items:center;gap:10px;
+  padding:16px 12px;border-bottom:1px solid var(--line-2);font-size:16px;line-height:1.55}
+.cmp .row.head{border-bottom:1px solid var(--ink);padding:12px 12px 14px}
+.cmp .row.head div{font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);text-align:center}
+.cmp .row.head div:first-child{text-align:left}
+.cmp .row .yes{color:var(--red);font-weight:600;text-align:center;font-size:17px}
+.cmp .row .no{color:rgba(34,52,76,.30);text-align:center;font-size:17px}
+.cmp .row .col{text-align:center;font-size:14px}
+.cmp .row .col .tag{display:block;margin:4px 0 0;margin-left:0}
+.cmp .row.price{border-bottom:1px solid var(--ink)}
+.cmp .row.price .col{font-family:var(--sans);font-size:15px;letter-spacing:.06em}
+.cmp .row.price .col.hi{color:var(--red);font-weight:500}
+.cmpnote{margin:14px 0 0;font-size:13px;line-height:1.6;color:var(--grey)}
+.inside{padding:70px 0 0}
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.icard{border:1px solid var(--line);background:var(--paper-2);padding:26px 26px 24px}
+.icard .no{font-family:var(--sans);font-size:11px;letter-spacing:.22em;color:var(--red)}
+.icard h3{font-size:20px;font-weight:600;margin:12px 0 8px;line-height:1.4}
+.icard p{font-size:15.5px;line-height:1.7;color:#3b4a5e;margin:0}
+.icard .tag{margin-left:0;margin-top:14px}
+.icard.wide{grid-column:1/-1}
+.faq{padding:70px 0 0}
+.faqbox{max-width:760px;margin:0 auto;border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line-2);padding:18px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+  font-size:16.5px;font-weight:600;line-height:1.5}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--sans);font-size:20px;font-weight:300;color:var(--grey);flex:0 0 auto}
+.faq details[open] summary::after{content:'−';color:var(--red)}
+.faq .ans{padding:12px 0 2px;font-size:16px;line-height:1.75;color:#3b4a5e;max-width:640px}
+.endcta{margin-top:78px;border-top:1px solid var(--line);background:var(--paper-2);padding:60px 0 54px;text-align:center}
+.endcta h2{font-size:33px;font-weight:600;margin:0 0 12px;line-height:1.32}
+.endcta p{font-size:16px;color:#3b4a5e;margin:0 0 28px}
+.endcta .legal{margin-top:26px;font-family:var(--sans);font-size:10.5px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.endcta .legalnote{display:block;margin-top:7px;letter-spacing:.12em}/* 卡588再再再补充①：退款一栏写 7 天 */
+/* ---- 卡597 五样 ---- */
+.bookcover{margin:46px auto 0;max-width:620px;text-align:center}
+.bookcover img{width:100%;height:auto;display:block;margin:0 auto}
+.bookcover figcaption{margin-top:16px;font-size:12.5px;color:var(--grey);line-height:1.6}
+.icardimg{display:block;width:calc(100% + 52px);max-width:none;height:150px;object-fit:cover;margin:-26px -26px 20px;filter:saturate(.94)}
+.aud{margin:16px 0 0}
+.aud audio{width:100%;height:38px;display:block}
+.audnote{margin:8px 0 0;font-size:12.5px;line-height:1.55;color:var(--grey)}
+.deck{margin-top:6px}
+.decknav{display:flex;gap:10px;justify-content:flex-end;margin:0 0 12px}
+.pgbtn{width:40px;height:40px;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;
+  font-family:var(--serif);font-size:16px;line-height:1}
+.pgbtn:hover{background:var(--red);border-color:var(--red);color:#fdf7ea}
+.strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 18px;-webkit-overflow-scrolling:touch}
+.pg{flex:0 0 clamp(230px,46%,420px);scroll-snap-align:center;margin:0;border:1px solid var(--line);background:#fff}
+.pg img{width:100%;height:auto;display:block}
+.pg figcaption{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);
+  padding:8px 10px;border-top:1px solid var(--line-2)}
+.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:4px}
+.cv{margin:0;border:1px solid var(--line);background:var(--paper-2)}
+.cv img{width:100%;height:auto;display:block}
+.cv .cvno{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--grey);padding:6px 7px;line-height:1.3}
+.cv.soon{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;border-style:dashed;background:none;
+  color:rgba(34,52,76,.32);font-family:var(--sans);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+@media (max-width:760px){.bookcover{margin-top:30px;max-width:88%}.icardimg{width:calc(100% + 40px);height:120px;margin:-22px -20px 16px}
+  .wall{grid-template-columns:repeat(3,1fr);gap:8px}.pg{flex:0 0 78%}.decknav{justify-content:center}}
+@media (max-width:760px){
+  .hero{padding:46px 0 34px}
+  .hero .brush{font-size:20px;margin-bottom:14px}
+  .hero h1{font-size:33px;line-height:1.25}
+  .hero .lead{font-size:17px;line-height:1.7;margin-bottom:30px}
+  .trust{grid-template-columns:1fr}
+  .trust div{padding:16px 0}
+  .trust div+div{border-left:0;border-top:1px solid var(--line)}
+  .trust b{font-size:26px}
+  .plans{padding:44px 0 0}
+  .plancard{padding:26px 20px 24px}
+  .plancard h2{font-size:22px}
+  .pricerow .now{font-size:46px}
+  .plancard li{font-size:15px}
+  .cmp .row{grid-template-columns:1fr 74px 92px;gap:6px;padding:13px 4px;font-size:14px}
+  .cmp .row.head div{font-size:9px;letter-spacing:.12em}
+  .cmp .row .col{font-size:12.5px}
+  .cmp .row.price .col{font-size:12.5px}
+  .compare,.inside,.faq{padding-top:52px}
+  .grid4{grid-template-columns:1fr;gap:16px}
+  .icard{padding:22px 20px}
+  .faq summary{font-size:15.5px}
+  .endcta{margin-top:56px;padding:44px 0 40px}
+  .endcta h2{font-size:25px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="wrap"><div class="row">
+  <div class="wordmark"><span class="hz">博弈</span><span class="lat">Bóyì · The 36 Stratagems</span></div>
+  <a class="back" href="/">← All stratagems</a>
+</div></div></div>
+
+<section class="hero"><div class="wrap">
+  <div class="brush">三十六计</div>
+  <div class="kicker">The Complete Collection</div>
+  <h1>All 36 stratagems, between two covers.</h1>
+  <p class="lead">Every stratagem — the story, the illustration, the practice pages — typeset as one book. Pre-order now and each new stratagem is added to your copy as it comes out.</p>
+  <figure class="bookcover"><img src="../assets/book.png" alt="The 36 Stratagems — Complete Collection, hardback with dust jacket"><figcaption>The collection, as it will be printed.</figcaption></figure>
+
+  <div class="trust">
+    <div><b>12 of 36</b><span>stratagems published so far</span></div>
+    <div><b>12 free PDFs</b><span>one with every stratagem, still free</span></div>
+    <div><b>$12</b><span>pre-order today, $19 when it is done</span></div>
+  </div>
+</div></section>
+
+<section class="plans"><div class="wrap">
+  <div class="plancard">
+    <div class="ribbon">Early bird</div>
+    <div class="kicker">Pre-order</div>
+    <h2>The 36 Stratagems — Complete Collection</h2>
+    <p class="sub">One book. All thirty-six stratagems, including the twenty-four still to come.</p>
+    <div class="pricerow">
+      <span class="now">$12</span>
+      <span class="was">$19</span>
+      <span class="cur">one payment</span>
+    </div>
+    <p class="pricenote">The collection is being finished in public. Buy it now at $12; when all 36 are done it goes back to $19. Every update reaches your copy — you pay once.</p>
+    <ul>
+      <li><span class="ck">✓</span><span>The 12 published stratagems, to be collected in one book<span class="tag">Planned</span></span></li>
+      <li><span class="ck">✓</span><span>All 36 when the set is finished, at no extra charge</span></li>
+      <li><span class="ck">✓</span><span>Typeset book with a table of contents across all 36<span class="tag">Planned</span></span></li>
+      <li><span class="ck">✓</span><span>Quick-reference table of all 36 stratagems<span class="tag">Planned</span></span></li>
+      <li><span class="ck">✓</span><span>The complete set of character practice sheets<span class="tag">Planned</span></span></li>
+      <li><span class="ck">✓</span><span>High-resolution illustrations<span class="tag">Planned</span></span></li>
+      <li><span class="ck">✓</span><span>Listen &amp; Write — Yoko&#x27;s own voice, one track per stratagem<span class="tag">Planned</span></span></li>
+    </ul>
+    <a class="btn red" href="#">Coming soon <span class="arw">→</span></a><!-- 占位：接 Stripe 结账 -->
+    <p class="fine">Payment is not open yet — nothing is charged today</p>
+  </div>
+</div></section>
+
+<section class="compare"><div class="wrap">
+  <div class="sechead">
+    <div class="kicker">Free vs collection</div>
+    <h2>Free stays free.</h2>
+    <p>Every stratagem keeps its free PDF on the site. The collection adds the parts that only make sense once the whole set exists.</p>
+  </div>
+  <div class="cmp">
+    <div class="row head">
+      <div>What you get</div>
+      <div>Free, per stratagem</div>
+      <div>Complete collection</div>
+    </div>
+    <div class="row"><div>The story of each stratagem</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
+    <div class="row"><div>Free PDF — character cards</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
+    <div class="row"><div>Practice handbook</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
+    <div class="row"><div>All 36 typeset as one book</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
+    <div class="row"><div>Table of contents across all 36</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
+    <div class="row"><div>Quick-reference table of all 36</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
+    <div class="row"><div>Complete practice-sheet set</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
+    <div class="row"><div>High-resolution illustrations</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
+    <div class="row"><div>Audio — Yoko&#x27;s voice, one track per stratagem</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
+    <div class="row price"><div>Price</div><div class="col">Free</div><div class="col hi">$12 early bird · $19 later</div></div>
+  </div>
+  <p class="cmpnote">* Practice handbooks are online for 11 of the 12 stratagems published so far — #1 has the character cards only.</p>
+</div></section>
+
+<section class="inside"><div class="wrap">
+  <div class="sechead">
+    <div class="kicker">Only in the collection</div>
+    <h2>Five things that need all 36 to exist.</h2>
+  </div>
+  <div class="grid4">
+    <div class="icard">
+      <img class="icardimg" src="../assets/ill/01.jpg" alt="">
+      <div class="no">01</div>
+      <h3>The book, typeset</h3>
+      <p>Every stratagem in one volume, in order, with a table of contents and an index by story.</p>
+      <span class="tag">Planned</span>
+    </div>
+    <div class="icard">
+      <img class="icardimg" src="../assets/ill/02.jpg" alt="">
+      <div class="no">02</div>
+      <h3>Quick-reference table</h3>
+      <p>All 36 on a single spread: the name, the line from the original text, and one sentence on what it means.</p>
+      <span class="tag">Planned</span>
+    </div>
+    <div class="icard">
+      <img class="icardimg" src="../assets/ill/03.jpg" alt="">
+      <div class="no">03</div>
+      <h3>The full practice set</h3>
+      <p>The four characters of every stratagem — 144 characters in all — with the same practice sheets you already know.</p>
+      <span class="tag">Planned</span>
+    </div>
+    <div class="icard">
+      <img class="icardimg" src="../assets/ill/04.jpg" alt="">
+      <div class="no">04</div>
+      <h3>Illustrations, full size</h3>
+      <p>The artwork at print resolution, without the compression the free pages use.</p>
+      <span class="tag">Planned</span>
+    </div>
+    <div class="icard wide">
+      <img class="icardimg" src="../assets/ill/05.jpg" alt="">
+      <div class="no">05</div>
+      <h3>Listen &amp; Write — Yoko&#x27;s own voice</h3>
+      <p>One audio track per stratagem, read in Mandarin by Yoko herself. Press play and write the four characters at the pace you hear — the same voice that reads the Chinese in the videos, slowed down to handwriting speed.</p>
+      <div class="aud"><audio controls preload="metadata" src="../assets/audio/13-01.mp3"></audio><p class="audnote">A real sample — 打 · 草 · 惊 · 蛇, from No.13</p></div>
+      <span class="tag">Planned</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="inside"><div class="wrap">
+  <div class="sechead">
+    <div class="kicker">Inside the handbook</div>
+    <h2>Four pages, as printed.</h2>
+    <p>Real pages from the free handbook of No. 11, 李代桃僵 — not a mock-up. Swipe or use the arrows.</p>
+  </div>
+  <div class="deck">
+    <div class="decknav">
+      <button class="pgbtn" type="button" data-dir="-1" aria-label="Previous page">←</button>
+      <button class="pgbtn" type="button" data-dir="1" aria-label="Next page">→</button>
+    </div>
+    <div class="strip">
+      <figure class="pg"><img src="../assets/handbook/h1.jpg" alt="Handbook page p. 1"><figcaption>p. 1</figcaption></figure>
+      <figure class="pg"><img src="../assets/handbook/h2.jpg" alt="Handbook page p. 5"><figcaption>p. 5</figcaption></figure>
+      <figure class="pg"><img src="../assets/handbook/h3.jpg" alt="Handbook page p. 7"><figcaption>p. 7</figcaption></figure>
+      <figure class="pg"><img src="../assets/handbook/h4.jpg" alt="Handbook page p. 9"><figcaption>p. 9</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<section class="inside"><div class="wrap">
+  <div class="sechead">
+    <div class="kicker">The covers</div>
+    <h2>Twelve out of thirty-six.</h2>
+    <p>Every stratagem gets its own cover. Each one is drawn and typeset as it is published.</p>
+  </div>
+  <div class="wall">
+    <figure class="cv"><img src="../assets/covers/01.jpg" alt="Cover of No.1 瞒天过海"><span class="cvno">No.1 · 瞒天过海</span></figure>
+    <figure class="cv"><img src="../assets/covers/02.jpg" alt="Cover of No.2 围魏救赵"><span class="cvno">No.2 · 围魏救赵</span></figure>
+    <figure class="cv"><img src="../assets/covers/03.jpg" alt="Cover of No.3 借刀杀人"><span class="cvno">No.3 · 借刀杀人</span></figure>
+    <figure class="cv"><img src="../assets/covers/04.jpg" alt="Cover of No.4 以逸待劳"><span class="cvno">No.4 · 以逸待劳</span></figure>
+    <figure class="cv"><img src="../assets/covers/05.jpg" alt="Cover of No.5 趁火打劫"><span class="cvno">No.5 · 趁火打劫</span></figure>
+    <figure class="cv"><img src="../assets/covers/06.jpg" alt="Cover of No.6 声东击西"><span class="cvno">No.6 · 声东击西</span></figure>
+    <figure class="cv"><img src="../assets/covers/07.jpg" alt="Cover of No.7 无中生有"><span class="cvno">No.7 · 无中生有</span></figure>
+    <figure class="cv"><img src="../assets/covers/08.jpg" alt="Cover of No.8 暗渡陈仓"><span class="cvno">No.8 · 暗渡陈仓</span></figure>
+    <figure class="cv"><img src="../assets/covers/09.jpg" alt="Cover of No.9 隔岸观火"><span class="cvno">No.9 · 隔岸观火</span></figure>
+    <figure class="cv"><img src="../assets/covers/10.jpg" alt="Cover of No.10 笑里藏刀"><span class="cvno">No.10 · 笑里藏刀</span></figure>
+    <figure class="cv"><img src="../assets/covers/11.jpg" alt="Cover of No.11 李代桃僵"><span class="cvno">No.11 · 李代桃僵</span></figure>
+    <figure class="cv"><img src="../assets/covers/12.jpg" alt="Cover of No.12 顺手牵羊"><span class="cvno">No.12 · 顺手牵羊</span></figure>
+    <div class="cv soon">No.13<br>Coming soon</div>
+    <div class="cv soon">No.14<br>Coming soon</div>
+    <div class="cv soon">No.15<br>Coming soon</div>
+    <div class="cv soon">No.16<br>Coming soon</div>
+    <div class="cv soon">No.17<br>Coming soon</div>
+    <div class="cv soon">No.18<br>Coming soon</div>
+    <div class="cv soon">No.19<br>Coming soon</div>
+    <div class="cv soon">No.20<br>Coming soon</div>
+    <div class="cv soon">No.21<br>Coming soon</div>
+    <div class="cv soon">No.22<br>Coming soon</div>
+    <div class="cv soon">No.23<br>Coming soon</div>
+    <div class="cv soon">No.24<br>Coming soon</div>
+    <div class="cv soon">No.25<br>Coming soon</div>
+    <div class="cv soon">No.26<br>Coming soon</div>
+    <div class="cv soon">No.27<br>Coming soon</div>
+    <div class="cv soon">No.28<br>Coming soon</div>
+    <div class="cv soon">No.29<br>Coming soon</div>
+    <div class="cv soon">No.30<br>Coming soon</div>
+    <div class="cv soon">No.31<br>Coming soon</div>
+    <div class="cv soon">No.32<br>Coming soon</div>
+    <div class="cv soon">No.33<br>Coming soon</div>
+    <div class="cv soon">No.34<br>Coming soon</div>
+    <div class="cv soon">No.35<br>Coming soon</div>
+    <div class="cv soon">No.36<br>Coming soon</div>
+  </div>
+</div></section>
+
+<section class="faq"><div class="wrap">
+  <div class="sechead">
+    <div class="kicker">Questions</div>
+    <h2>Before you buy</h2>
+  </div>
+  <div class="faqbox">
+    <details open>
+      <summary>How does the early-bird price work?</summary>
+      <div class="ans">The collection is being finished one stratagem at a time. While it is in progress the price is $12. The regular price is $19.</div>
+    </details>
+    <details>
+      <summary>What happens when a new stratagem comes out?</summary>
+      <div class="ans">It is added to the collection, and to your copy. You pay once — the $12 covers all 36, including the ones that do not exist yet.</div>
+    </details>
+    <details>
+      <summary>Do the free PDFs stay free?</summary>
+      <div class="ans">Yes. Every stratagem keeps its free PDF on the site, exactly as it is today. The collection does not take anything away from the free pages.</div>
+    </details>
+    <details>
+      <summary>How do I pay?</summary>
+      <div class="ans">Not yet. Payments are not open — this page is a preview. Nothing is charged, and no email address or card details are collected.</div>
+    </details>
+    <details>
+      <summary>How do I get the audio?</summary>
+      <div class="ans">When you buy, your receipt email carries a private download page. Each track plays right there with one press, and “Download all” takes the whole set at once — the PDF and the MP3s together — on a phone or on a computer. If you bought at the early-bird price, that same page keeps collecting the new tracks as they are recorded.</div>
+    </details>
+    <details>
+      <summary>Can I get a refund?</summary>
+      <div class="ans">Yes — within 7 days of purchase, for any reason. Email us and we&#x27;ll refund in full.</div>
+    </details>
+    <details>
+      <summary>Which stratagems are already out?</summary>
+      <div class="ans">Twelve, from #1 瞒天过海 to #12 顺手牵羊. The free pages are on the main site, one per stratagem.</div>
+    </details>
+  </div>
+</div></section>
+
+<section class="endcta"><div class="wrap">
+  <h2>All 36, for the price of one lunch.</h2>
+  <p>$12 while the collection is in progress. $19 when it is done.</p>
+  <a class="btn red" href="#">Coming soon <span class="arw">→</span></a><!-- 占位：同上 -->
+  <div class="legal"><a href="#">Legal notice · 特定商取引法に基づく表記</a><span class="legalnote">Refunds · within 7 days of purchase, for any reason · 返品特約</span></div><!-- 占位：法律表记页还没做；退款只写「7 天内可退」这一句，不写附加条件 -->
+</div></section>
+
+<div class="foot"><div class="wrap"><div class="row">
+  <span>© 2026 博弈 Bóyì · The 36 Stratagems with Yoko</span>
+  <span>Free PDFs stay free</span>
+</div></div></div>
+
+<script>
+/* 卡597 手帐样张：左右箭头翻页（纯滚动，无依赖；file:// 双击也能用） */
+document.querySelectorAll('.pgbtn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var strip = document.querySelector('.strip');
+    var card = strip && strip.querySelector('.pg');
+    if (!card) return;
+    strip.scrollBy({ left: (card.getBoundingClientRect().width + 18) * Number(btn.dataset.dir), behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
