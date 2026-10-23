@@ -233,9 +233,14 @@ a{color:inherit;text-decoration:none}
   .fcard .txt{left:18px;right:18px;bottom:16px}
   .fcard .nm .zh{font-size:30px}
   .fcard .nm .en{font-size:9.5px;letter-spacing:.18em}
-  /* 手机：只留名字＋英文简介一行（超出省略），中文简介不显示 */
-  .fcard .line{font-size:14.5px;line-height:1.6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .fcard .line .lzh{display:none}
+  /* 手机：名字＋英文简介两行、中文简介一行（超出都省略）（卡599 第2条） */
+  .fcard .line{font-size:14.5px;line-height:1.6}
+  .fcard .line .len{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .fcard .line .lzh{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;
+    margin-top:5px;font-size:13.5px;color:rgba(255,255,255,.9)}
+  /* 多了一行，名字被顶上抬到渐变上沿之上（量：卡高 54%），白字底下变亮，加一层阴影保住可读性；
+     渐变比例不动（子房 20261023 定） */
+  .fcard .nm,.fcard .line{text-shadow:0 1px 3px rgba(6,10,16,.62),0 6px 22px rgba(6,10,16,.45)}
   /* 渐变只压卡片下面三分之一，别盖住脸（子房 20261023） */
   .fcard::after{inset:auto 0 0 0;height:33%;
     background:linear-gradient(to top,rgba(11,18,28,.95) 0%,rgba(11,18,28,.62) 58%,rgba(11,18,28,0) 100%)}
@@ -480,7 +485,7 @@ const PEOPLE = [
     a.innerHTML =
       '<div class="pic"><img src="' + p.img + '" alt="' + p.zh + ' ' + p.en + '" loading="lazy" style="object-position:' + p.pos + '"></div>' +
       '<div class="txt"><div class="nm"><span class="zh">' + p.zh + '</span><span class="en">' + p.en + '</span></div>' +
-      '<p class="line">' + p.line + '<span class="lzh">' + p.lzh + '</span></p></div>';
+      '<p class="line"><span class="len">' + p.line + '</span><span class="lzh">' + p.lzh + '</span></p></div>';
     a.addEventListener('click', (e) => {           // 不是最前那张：先滑到最前，不跳页
       if (i !== focus){ e.preventDefault(); focus = i; settled = i; layout(); }
     });
