@@ -172,6 +172,10 @@ img{display:block;max-width:100%}
   .cmp .row.head div{font-size:9px;letter-spacing:.12em}
   .cmp .row .col{font-size:12.5px}
   .cmp .row.price .col{font-size:12.5px}
+  /* 卡822:手帐行手机叠放 */
+  .cmp .row.stack{grid-template-columns:1fr;gap:5px}
+  .cmp .row.stack .col{text-align:left;font-size:13px;line-height:1.5}
+  .cmp .row.stack .col::before{content:attr(data-l) " · ";font-family:var(--sans);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
   .compare,.inside,.faq{padding-top:52px}
   .grid4{grid-template-columns:1fr;gap:16px}
   .icard{padding:22px 20px}
@@ -253,7 +257,7 @@ img{display:block;max-width:100%}
     </div>
     <div class="row"><div>The story of each stratagem</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
     <div class="row"><div>Free PDF — character cards</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
-    <div class="row"><div>Practice handbook</div><div class="col">Character cards + the No. 1 handbook</div><div class="col">All 36 handbooks + Yoko&#x27;s audio</div></div>
+    <div class="row stack"><div>Practice handbook</div><div class="col" data-l="Free">Character cards + the No. 1 handbook</div><div class="col" data-l="Collection">All 36 handbooks + Yoko&#x27;s audio</div></div>
     <div class="row"><div>All 36 typeset as one book</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
     <div class="row"><div>Table of contents across all 36</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
     <div class="row"><div>Quick-reference table of all 36</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
