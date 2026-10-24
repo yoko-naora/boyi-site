@@ -179,6 +179,17 @@ img{display:block;max-width:100%}
   .endcta{margin-top:56px;padding:44px 0 40px}
   .endcta h2{font-size:25px}
 }
+/* 卡822:试用块:开始（收费页对比表下、总页卡片上方共用同一块；推送副本要原样取这一段，标记别改） */
+.trial{margin:22px 0 0;padding:20px 22px;border:1px solid rgba(158,51,40,.45);background:var(--paper-2);
+  display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap}
+.trial p{margin:0;font-size:15.5px;line-height:1.68;color:#2a3950;max-width:640px}
+.trial .btn{flex:0 0 auto}
+@media (max-width:760px){
+  .trial{padding:16px 16px}
+  .trial p{font-size:14.5px}
+  .trial .btn{width:100%}
+}
+/* 卡822:试用块:结束 */
 </style>
 </head>
 <body>
@@ -242,7 +253,7 @@ img{display:block;max-width:100%}
     </div>
     <div class="row"><div>The story of each stratagem</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
     <div class="row"><div>Free PDF — character cards</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
-    <div class="row"><div>Practice handbook</div><div class="yes">✓</div><div class="col"><span class="yes">✓</span></div></div>
+    <div class="row"><div>Practice handbook</div><div class="col">Character cards + the No. 1 handbook</div><div class="col">All 36 handbooks + Yoko&#x27;s audio</div></div>
     <div class="row"><div>All 36 typeset as one book</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
     <div class="row"><div>Table of contents across all 36</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
     <div class="row"><div>Quick-reference table of all 36</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
@@ -251,7 +262,7 @@ img{display:block;max-width:100%}
     <div class="row"><div>Audio — Yoko&#x27;s voice, one track per stratagem</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
     <div class="row price"><div>Price</div><div class="col">Free</div><div class="col hi">$12 early bird · $19 later</div></div>
   </div>
-  <p class="cmpnote">* Practice handbooks are online for 11 of the 12 stratagems published so far — #1 has the character cards only.</p>
+  <div class="trial"><p>Try it free: the full handbook for Stratagem No. 1 is yours to download. Handbooks for No. 2 onward come only with the collection.</p><a class="btn red" href="/1/boyi-01-handbook.pdf">Download No. 1 handbook (free) <span class="arw">→</span></a></div>
 </div></section>
 
 <section class="inside"><div class="wrap">
@@ -303,7 +314,7 @@ img{display:block;max-width:100%}
   <div class="sechead">
     <div class="kicker">Inside the handbook</div>
     <h2>Four pages, as printed.</h2>
-    <p>Real pages from the free handbook of No. 11, 李代桃僵 — not a mock-up. Swipe or use the arrows.</p>
+    <p>A look inside: four pages from the No. 11 handbook, 李代桃僵 — not a mock-up. Swipe or use the arrows.</p>
   </div>
   <div class="deck">
     <div class="decknav">

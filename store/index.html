@@ -82,6 +82,17 @@ img{display:block;max-width:100%}
   .scard h2{font-size:21px}
   .scard .btn{width:100%}
 }
+/* 卡822:试用块:开始（收费页对比表下、总页卡片上方共用同一块；推送副本要原样取这一段，标记别改） */
+.trial{margin:22px 0 0;padding:20px 22px;border:1px solid rgba(158,51,40,.45);background:var(--paper-2);
+  display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap}
+.trial p{margin:0;font-size:15.5px;line-height:1.68;color:#2a3950;max-width:640px}
+.trial .btn{flex:0 0 auto}
+@media (max-width:760px){
+  .trial{padding:16px 16px}
+  .trial p{font-size:14.5px}
+  .trial .btn{width:100%}
+}
+/* 卡822:试用块:结束 */
 </style>
 </head>
 <body>
@@ -98,6 +109,7 @@ img{display:block;max-width:100%}
 </div></div>
 
 <div class="wrap">
+  <div class="trial"><p>Try it free: the full handbook for Stratagem No. 1 is yours to download. Handbooks for No. 2 onward come only with the collection.</p><a class="btn red" href="/1/boyi-01-handbook.pdf">Download No. 1 handbook (free) <span class="arw">→</span></a></div>
   <div class="cards">
     <div class="scard">
       <div>
