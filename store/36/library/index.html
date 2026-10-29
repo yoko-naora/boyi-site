@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <!-- 卡627 上线测试：由 模板/下载页.html ＋ 数据/系列-36.json 生成，不要手改这个文件。
      noindex；不接登录、不建账号、不收任何资料。
-     12 条 Track 的播放键和 MP3↓ 都指向同一段试听（../../assets/audio/13-01.mp3）——
+     12 条 Track 的播放键和 MP3↓ 都指向同一段试听（）——
      整套音轨一条都没有放进公开目录。 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +77,9 @@ img{display:block;max-width:100%}
 .file p{margin:0;font-size:13.5px;color:var(--grey);line-height:1.5}
 .allbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:14px;flex-wrap:wrap}
 .allbar .note{font-size:13.5px;color:var(--grey);line-height:1.5}
+/* 卡645：不能下载时的占位（虚线、灰字、不可点） */
+.btn.dis{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border:1px dashed rgba(34,52,76,.28);
+  color:var(--grey);font-family:var(--sans);font-size:12.5px;letter-spacing:.20em;text-transform:uppercase;cursor:default}
 .audio{padding:56px 0 0}
 .audio .sechead{text-align:left;margin-bottom:26px}
 .audio h2{font-size:30px;font-weight:600;margin:10px 0 10px;line-height:1.3}
@@ -96,6 +99,18 @@ img{display:block;max-width:100%}
 .track .sheet{font-size:13px;color:#3b4a5e;border-bottom:1px dotted var(--line)}
 .track .dl{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);
   border:1px solid rgba(158,51,40,.4);padding:7px 10px}
+/* 卡646②：预览页不给下载——同字形，虚线灰框、不可点 */
+.track .dl.dis{color:#8b929c;border:1px dashed rgba(34,52,76,.22);cursor:default}
+/* 卡647：四速试听（Super slow / Slow / Normal / Fast） */
+.aud4{margin:0 0 22px}
+.aud4row{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-2)}
+.aud4row:first-child{border-top:1px solid var(--line-2)}
+.aud4row .sp{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.aud4row audio{width:100%;height:38px;display:block}
+@media (max-width:760px){
+  .aud4row{grid-template-columns:1fr auto;gap:8px}
+  .aud4row .sp{grid-column:1/-1}
+}
 .more{margin-top:18px;padding:16px 18px;background:var(--paper-2);border:1px dashed var(--line);font-size:14px;color:#3b4a5e;line-height:1.6}
 .foot{margin-top:44px}
 @media (max-width:760px){
@@ -121,7 +136,7 @@ img{display:block;max-width:100%}
 </div></div></div>
 
 <div class="head"><div class="wrap">
-  <div class="kicker">Your collection · early bird</div>
+  <div class="kicker">Your collection · <!--价:buyer_label_en-->early bird<!--/价--></div>
   <h1>Everything you bought, in one place.</h1>
   <p class="lead">Bookmark this page. Every new stratagem — its pages and its audio — is added here as it is finished. No new purchase, no new link.</p>
   <p class="preview">Preview · one sample track plays below · downloads are not available yet</p>
@@ -131,36 +146,53 @@ img{display:block;max-width:100%}
   <div class="file">
     <span class="fico">PDF</span>
     <div>
-      <h3>The 36 Stratagems — Complete Collection</h3>
-      <p>Digital edition · 12 of 36 stratagems so far · re-downloaded whenever a new one is added</p>
+      <h3>The 36 Stratagems — Complete Collection（博弈三十六计 合订本）</h3>
+      <p><!--含:n7-->Digital edition · All 36 stratagems · Listen &amp; Write audio is added as it&#x27;s finished<!--/含--></p>
     </div>
-    <a class="btn ghost" href="#">Download</a><!-- 占位 -->
+    <span class="btn dis">Coming soon</span>
   </div>
   <div class="allbar">
     <span class="note">Everything at once — the book and every audio track.</span>
-    <a class="btn red" href="#">Download all — PDF + MP3</a><!-- 占位 -->
+    <span class="btn dis">Coming soon</span>
   </div>
 </div></div>
 
 <div class="audio"><div class="wrap">
   <div class="sechead">
     <div class="kicker">Listen &amp; Write</div>
-    <h2>Yoko&#x27;s voice, one track per stratagem.</h2>
-    <p>Each track follows the practice sheet: press play, then write the four characters at the pace you hear.</p>
+    <h2>Yoko&#x27;s pronunciation recordings, numbered to match the free PDFs.</h2>
+    <p>Each recording has the same number as the free pronunciation PDF of that stratagem: press play, then say it after Yoko.</p>
   </div>
+  <div class="aud4">
+    <div class="aud4row">
+      <span class="sp">Super slow</span>
+      <audio controls preload="metadata" src="../../assets/audio/13-01-superslow.mp3"></audio>
+      <span class="dl dis">MP3 ↓</span>
+    </div>
+    <div class="aud4row">
+      <span class="sp">Slow</span>
+      <audio controls preload="metadata" src="../../assets/audio/13-01-slow.mp3"></audio>
+      <span class="dl dis">MP3 ↓</span>
+    </div>
+    <div class="aud4row">
+      <span class="sp">Normal</span>
+      <audio controls preload="metadata" src="../../assets/audio/13-01-normal.mp3"></audio>
+      <span class="dl dis">MP3 ↓</span>
+    </div>
+    <div class="aud4row">
+      <span class="sp">Fast</span>
+      <audio controls preload="metadata" src="../../assets/audio/13-01-fast.mp3"></audio>
+      <span class="dl dis">MP3 ↓</span>
+    </div>
+  </div>
+  <p class="audnote">Start with Super slow and write along, then move up one speed at a time.</p>
   <div class="list">
   <div class="grp">
     <div class="grphead">
       <span class="no">No. 01</span>
       <span class="zh">瞒天过海</span>
       <span class="en">Hide it from heaven, cross the sea</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 01</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 08</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -168,13 +200,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 02</span>
       <span class="zh">围魏救赵</span>
       <span class="en">Besiege Wei to rescue Zhao</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 02</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 09</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -182,13 +208,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 03</span>
       <span class="zh">借刀杀人</span>
       <span class="en">Borrow a knife to kill a person</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 03</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 10</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -196,13 +216,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 04</span>
       <span class="zh">以逸待劳</span>
       <span class="en">Wait at ease for the tired enemy</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 04</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 11</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -210,13 +224,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 05</span>
       <span class="zh">趁火打劫</span>
       <span class="en">Loot a burning house</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 05</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 12</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -224,13 +232,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 06</span>
       <span class="zh">声东击西</span>
       <span class="en">Make noise in the east, strike in the west</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 06</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 13</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -238,13 +240,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 07</span>
       <span class="zh">无中生有</span>
       <span class="en">Create something from nothing</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 07</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 14</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -252,13 +248,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 08</span>
       <span class="zh">暗渡陈仓</span>
       <span class="en">Cross at Chencang in the dark</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 08</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 15</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -266,13 +256,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 09</span>
       <span class="zh">隔岸观火</span>
       <span class="en">Watch the fire from the other bank</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 09</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 16</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -280,13 +264,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 10</span>
       <span class="zh">笑里藏刀</span>
       <span class="en">Sweet on the outside</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 10</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 17</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -294,13 +272,7 @@ img{display:block;max-width:100%}
       <span class="no">No. 11</span>
       <span class="zh">李代桃僵</span>
       <span class="en">A plum takes the peach&#x27;s fall</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 11</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 18</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   <div class="grp">
@@ -308,43 +280,19 @@ img{display:block;max-width:100%}
       <span class="no">No. 12</span>
       <span class="zh">顺手牵羊</span>
       <span class="en">Take the sheep in passing</span>
-    </div>
-    <div class="track">
-      <button class="play" type="button" data-sample aria-label="Play the sample track">▶</button>
-      <span class="tid">Track 12</span>
-      <span class="who">Yoko · Mandarin</span>
       <span class="sheet">Sheet p. 19</span>
-      <a class="dl" href="../../assets/audio/13-01.mp3" download>MP3 ↓</a>
     </div>
   </div>
   </div>
-  <div class="more">Every track above plays the same sample for now — 打 · 草 · 惊 · 蛇, the four characters of stratagem 13, in Yoko&#x27;s voice. Full tracks are added here one at a time as they are recorded.</div>
+  <div class="more">The four speeds above are Yoko&#x27;s own voice reading 打 · 草 · 惊 · 蛇, the four characters of stratagem 13. Full tracks for the other stratagems are added here one at a time as they are recorded.</div>
 </div></div>
 
 <div class="foot"><div class="wrap"><div class="row">
   <span>Lost this page? The link is in your receipt email.</span>
-  <span><a href="#">Legal notice · 特定商取引法に基づく表記</a></span>
+  <span>Legal notice · 特定商取引法に基づく表記</span>
+  <span><a href="https://www.instagram.com/boyi.36ji/" target="_blank" rel="noopener">Instagram</a></span>
+  <span><a href="https://www.tiktok.com/@yoko.boyi" target="_blank" rel="noopener">TikTok</a></span>
 </div></div></div>
-
-<audio id="sample" preload="none" src="../../assets/audio/13-01.mp3"></audio>
-<script>
-/* 卡627：12 条 Track 共用这一段试听（打·草·惊·蛇）。按一下播、再按一下停。 */
-(function () {
-  var s = document.getElementById('sample');
-  var btns = [].slice.call(document.querySelectorAll('.play[data-sample]'));
-  function paint() {
-    var playing = !s.paused && !s.ended;
-    btns.forEach(function (b) { b.textContent = playing ? '❚❚' : '▶'; });
-  }
-  btns.forEach(function (b) {
-    b.addEventListener('click', function () {
-      if (!s.paused) { s.pause(); } else { s.currentTime = 0; s.play(); }
-      paint();
-    });
-  });
-  ['play', 'pause', 'ended'].forEach(function (e) { s.addEventListener(e, paint); });
-})();
-</script>
 
 </body>
 </html>

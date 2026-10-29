@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Store — 博弈 Bóyì</title>
-<meta name="robots" content="noindex,nofollow"><!-- 卡627：收费页全套不进搜索结果，只能靠网址进 -->
 <!-- 设计稿（卡588再补充）：由 模板/总页.html ＋ 数据/系列-*.json 自动生成；/store/ 列所有系列，
      每个系列指到 /store/<slug>/。按钮都是站内链接（真链接），其余占位照旧。 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,6 +59,17 @@ img{display:block;max-width:100%}
   .nav .back{order:2;flex:0 0 auto;margin-left:auto;white-space:nowrap;font-size:10px;letter-spacing:.14em}
   .wordmark .lat{order:3;flex:0 0 100%;font-size:9.5px;letter-spacing:.20em;line-height:1.4}
 }
+/* 卡822:试用块:开始（收费页对比表下、总页卡片上方共用同一块；推送副本要原样取这一段，标记别改） */
+.trial{margin:22px 0 0;padding:20px 22px;border:1px solid rgba(158,51,40,.45);background:var(--paper-2);
+  display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap}
+.trial p{margin:0;font-size:15.5px;line-height:1.68;color:#2a3950;max-width:640px}
+.trial .btn{flex:0 0 auto}
+@media (max-width:760px){
+  .trial{padding:16px 16px}
+  .trial p{font-size:14.5px}
+  .trial .btn{width:100%}
+}
+/* 卡822:试用块:结束 */
 
 /* ---- 总页 ---- */
 .wrap{max-width:900px}
@@ -113,7 +123,7 @@ img{display:block;max-width:100%}
   <div class="cards">
     <div class="scard">
       <div>
-        <div class="k">Early bird · $12</div>
+        <div class="k"><!--价:store_card_en-->Early bird $12 until Nov 30, 2026 · then $19<!--/价--></div>
         <h2>The 36 Stratagems</h2>
         <p>Chinese kids learn 36 stratagems. Now you can too — one at a time, with a free PDF for each.</p>
       </div>
@@ -126,6 +136,8 @@ img{display:block;max-width:100%}
 <div class="foot" style="margin-top:56px"><div class="wrap"><div class="row">
   <span>© 2026 博弈 Bóyì · The 36 Stratagems</span>
   <span>Free pages stay free</span>
+  <span><a href="https://www.instagram.com/boyi.36ji/" target="_blank" rel="noopener">Instagram</a></span>
+  <span><a href="https://www.tiktok.com/@yoko.boyi" target="_blank" rel="noopener">TikTok</a></span>
 </div></div></div>
 
 </body>

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The 36 Stratagems · Complete Collection — 博弈 Bóyì</title>
-<meta name="description" content="All 36 stratagems collected into one book. Pre-order at $12 (regular $19). Every stratagem keeps its free PDF.">
-<meta name="robots" content="noindex,nofollow"><!-- 卡627：收费页不进搜索结果，只能靠网址进 -->
+<!--价属性:page36_meta_en-->
+<meta name="description" content="All 36 stratagems collected into one book. Early bird $12 until Nov 30, 2026, then $19. Every stratagem keeps its free PDF.">
 <!-- 设计稿（卡588＋再补充）：由 模板/收费页.html ＋ 数据/系列-36.json 生成，不要手改这个文件。
      卡627 上线测试：页面已上 boyi.snsaladdin.com/store/，但 href="#" 仍是占位（按钮文字 Coming soon）、
      不接付款、不建账号、不收任何资料。 -->
@@ -62,6 +62,17 @@ img{display:block;max-width:100%}
   .nav .back{order:2;flex:0 0 auto;margin-left:auto;white-space:nowrap;font-size:10px;letter-spacing:.14em}
   .wordmark .lat{order:3;flex:0 0 100%;font-size:9.5px;letter-spacing:.20em;line-height:1.4}
 }
+/* 卡822:试用块:开始（收费页对比表下、总页卡片上方共用同一块；推送副本要原样取这一段，标记别改） */
+.trial{margin:22px 0 0;padding:20px 22px;border:1px solid rgba(158,51,40,.45);background:var(--paper-2);
+  display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap}
+.trial p{margin:0;font-size:15.5px;line-height:1.68;color:#2a3950;max-width:640px}
+.trial .btn{flex:0 0 auto}
+@media (max-width:760px){
+  .trial{padding:16px 16px}
+  .trial p{font-size:14.5px}
+  .trial .btn{width:100%}
+}
+/* 卡822:试用块:结束 */
 
 /* ---- 收费页 ---- */
 .hero{padding:74px 0 54px;text-align:center}
@@ -79,6 +90,8 @@ img{display:block;max-width:100%}
   font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;padding:8px 14px}
 .plancard h2{font-size:27px;font-weight:600;margin:8px 0 6px;line-height:1.3}
 .plancard .sub{font-size:14.5px;color:var(--grey);margin:0 0 26px}
+.plancard .includes{font-size:14.5px;color:var(--ink);margin:-14px 0 26px}
+.plancard .includes .zh{color:var(--grey)}
 .pricerow{display:flex;align-items:baseline;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .pricerow .now{font-family:var(--sans);font-size:56px;font-weight:400;line-height:1;color:var(--red)}
 .pricerow .was{font-size:20px;color:var(--grey);text-decoration:line-through;text-decoration-thickness:1.5px}
@@ -134,7 +147,21 @@ img{display:block;max-width:100%}
 .icardimg{display:block;width:calc(100% + 52px);max-width:none;height:150px;object-fit:cover;margin:-26px -26px 20px;filter:saturate(.94)}
 .aud{margin:16px 0 0}
 .aud audio{width:100%;height:38px;display:block}
+.aud .audrow{display:grid;grid-template-columns:86px 1fr;align-items:center;gap:10px;margin:8px 0 0}
+.aud .audrow .sp{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);line-height:1.3}
+@media (max-width:760px){.aud .audrow{grid-template-columns:76px 1fr;gap:8px}}
 .audnote{margin:8px 0 0;font-size:12.5px;line-height:1.55;color:var(--grey)}
+/* 卡647 追加：价格卡上面的「四速听」主推块（只播放不下载） */
+.hear{padding:54px 0 8px;border-top:1px solid var(--line)}
+.hear h2{font-size:34px;line-height:1.22;font-weight:600;margin:0 0 12px}
+.hear .lead{font-size:17px;line-height:1.65;color:#3b4a5e;max-width:760px;margin:0}
+.hearsrc{margin:16px 0 0;font-size:15px;line-height:1.5;color:var(--ink);letter-spacing:.02em}
+.hear4{margin:22px 0 0;max-width:780px}
+.hear4row{display:grid;grid-template-columns:104px 1fr;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--line-2)}
+.hear4row:first-child{border-top:1px solid var(--line-2)}
+.hear4row .sp{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);line-height:1.3}
+.hear4row audio{width:100%;height:40px;display:block}
+.hearnote{margin:16px 0 0;font-size:13px;line-height:1.6;color:var(--grey);max-width:760px}
 .deck{margin-top:6px}
 .decknav{display:flex;gap:10px;justify-content:flex-end;margin:0 0 12px}
 .pgbtn{width:40px;height:40px;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;
@@ -146,7 +173,7 @@ img{display:block;max-width:100%}
 .pg figcaption{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);
   padding:8px 10px;border-top:1px solid var(--line-2)}
 .wall{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:4px}
-.cv{margin:0;border:1px solid var(--line);background:var(--paper-2)}
+.cv{min-width:0;margin:0;border:1px solid var(--line);background:var(--paper-2)}
 .cv img{width:100%;height:auto;display:block}
 .cv .cvno{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--grey);padding:6px 7px;line-height:1.3}
@@ -167,6 +194,11 @@ img{display:block;max-width:100%}
   .plancard{padding:26px 20px 24px}
   .plancard h2{font-size:22px}
   .pricerow .now{font-size:46px}
+  .hear{padding:40px 0 6px}
+  .hear h2{font-size:26px}
+  .hear .lead{font-size:16px}
+  .hear4row{grid-template-columns:1fr;gap:6px}
+  .hear4row .sp{font-size:11px}
   .plancard li{font-size:15px}
   .cmp .row{grid-template-columns:1fr 74px 92px;gap:6px;padding:13px 4px;font-size:14px}
   .cmp .row.head div{font-size:9px;letter-spacing:.12em}
@@ -211,35 +243,61 @@ img{display:block;max-width:100%}
   <figure class="bookcover"><img src="../assets/book.png" alt="The 36 Stratagems — Complete Collection, hardback with dust jacket"><figcaption>The collection, as it will be printed.</figcaption></figure>
 
   <div class="trust">
-    <div><b>12 of 36</b><span>stratagems published so far</span></div>
-    <div><b>12 free PDFs</b><span>one with every stratagem, still free</span></div>
-    <div><b>$12</b><span>pre-order today, $19 when it is done</span></div>
+    <div><b><!--含:n1-->36 of 36<!--/含--></b><span>stratagems in the book now</span></div>
+    <div><b><!--含:n2-->36 free PDFs<!--/含--></b><span>one with every stratagem, still free</span></div>
+    <div><!--价:page36_stat_en--><b>$12</b><span>early bird until Nov 30, 2026 · $19 from Dec 1</span><!--/价--></div>
   </div>
+</div></section>
+
+<section class="hear"><div class="wrap">
+  <h2>Hear Every Stratagem 4 Ways</h2>
+  <p class="lead">Yoko reads each stratagem&#x27;s name and original text in her own voice — Super slow, Slow, Normal, Fast. Start slow, write along, then speed up.</p>
+  <p class="hearsrc">打草惊蛇 · dǎ cǎo jīng shé — Stratagem #13</p>
+  <div class="hear4">
+    <div class="hear4row">
+      <span class="sp">Super slow</span>
+      <audio controls preload="metadata" controlslist="nodownload" oncontextmenu="return false" src="../assets/audio/13-01-superslow.mp3"></audio>
+    </div>
+    <div class="hear4row">
+      <span class="sp">Slow</span>
+      <audio controls preload="metadata" controlslist="nodownload" oncontextmenu="return false" src="../assets/audio/13-01-slow.mp3"></audio>
+    </div>
+    <div class="hear4row">
+      <span class="sp">Normal</span>
+      <audio controls preload="metadata" controlslist="nodownload" oncontextmenu="return false" src="../assets/audio/13-01-normal.mp3"></audio>
+    </div>
+    <div class="hear4row">
+      <span class="sp">Fast</span>
+      <audio controls preload="metadata" controlslist="nodownload" oncontextmenu="return false" src="../assets/audio/13-01-fast.mp3"></audio>
+    </div>
+  </div>
+  <p class="hearnote"><!--含:hear-->Yoko's own voice audio at four speeds, played right on the page.<!--/含--></p>
 </div></section>
 
 <section class="plans"><div class="wrap">
   <div class="plancard">
-    <div class="ribbon">Early bird</div>
+    <div class="ribbon"><!--价:page36_ribbon_en-->Early bird<!--/价--></div>
     <div class="kicker">Pre-order</div>
-    <h2>The 36 Stratagems — Complete Collection</h2>
-    <p class="sub">One book. All thirty-six stratagems, including the twenty-four still to come.</p>
+    <h2>The 36 Stratagems — Complete Collection（博弈三十六计 合订本）</h2>
+    <p class="sub">One book. All thirty-six stratagems, including the <!--含:rest-->zero<!--/含--> still to come.</p>
+    <!--含:incl--><p class="includes">All 36 stratagems included. Yoko's own voice audio at four speeds, played right on the page. <span class="zh">（36 计全部收录。Yoko 原声四速音频，在页面上直接播放。）</span></p><!--/含-->
     <div class="pricerow">
-      <span class="now">$12</span>
-      <span class="was">$19</span>
+      <span class="now"><!--价:page36_now_en-->$12<!--/价--></span>
+      <span class="was"><!--价:page36_was_en-->$19<!--/价--></span>
       <span class="cur">one payment</span>
     </div>
-    <p class="pricenote">The collection is being finished in public. Buy it now at $12; when all 36 are done it goes back to $19. Every update reaches your copy — you pay once.</p>
+    <p class="pricenote"><!--价:page36_pricenote_en-->The collection is being finished in public. Early bird: $12 until Nov 30, 2026. From Dec 1, 2026 the price is $19. Every update reaches your copy — you pay once.<!--/价--></p>
     <ul>
-      <li><span class="ck">✓</span><span>The 12 published stratagems, to be collected in one book<span class="tag">Planned</span></span></li>
+      <li><span class="ck">✓</span><span><!--含:n3-->The 36 published stratagems<!--/含-->, to be collected in one book<span class="tag">Planned</span></span></li>
       <li><span class="ck">✓</span><span>All 36 when the set is finished, at no extra charge</span></li>
       <li><span class="ck">✓</span><span>Typeset book with a table of contents across all 36<span class="tag">Planned</span></span></li>
       <li><span class="ck">✓</span><span>Quick-reference table of all 36 stratagems<span class="tag">Planned</span></span></li>
       <li><span class="ck">✓</span><span>The complete set of character practice sheets<span class="tag">Planned</span></span></li>
       <li><span class="ck">✓</span><span>High-resolution illustrations<span class="tag">Planned</span></span></li>
-      <li><span class="ck">✓</span><span>Listen &amp; Write — Yoko&#x27;s own voice, one track per stratagem<span class="tag">Planned</span></span></li>
+      <li><span class="ck">✓</span><span>Listen &amp; Write — Yoko&#x27;s own pronunciation recordings: every stratagem, numbered to match its free pronunciation PDF, read at four speeds for you to repeat after<span class="tag">Planned</span></span></li>
     </ul>
-    <a class="btn red" href="#">Coming soon <span class="arw">→</span></a><!-- 占位：接 Stripe 结账 -->
-    <p class="fine">Payment is not open yet — nothing is charged today</p>
+    <a class="btn red" href="https://buy.stripe.com/4gM00j7sccig8MXaWv2wU05">Buy now — $12 early bird <span class="arw">→</span></a>
+    <p class="fine">Early-bird price $12, until 2026/11/30. Regular price $19.</p>
   </div>
 </div></section>
 
@@ -263,8 +321,8 @@ img{display:block;max-width:100%}
     <div class="row"><div>Quick-reference table of all 36</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
     <div class="row"><div>Complete practice-sheet set</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
     <div class="row"><div>High-resolution illustrations</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
-    <div class="row"><div>Audio — Yoko&#x27;s voice, one track per stratagem</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
-    <div class="row price"><div>Price</div><div class="col">Free</div><div class="col hi">$12 early bird · $19 later</div></div>
+    <div class="row"><div>Audio — Yoko&#x27;s pronunciation recordings, four speeds per stratagem</div><div class="no">—</div><div class="col"><span class="yes">✓</span><span class="tag">Planned</span></div></div>
+    <div class="row price"><div>Price</div><div class="col">Free</div><div class="col hi"><!--价:page36_table_en-->$12 early bird until Nov 30, 2026 · $19 from Dec 1<!--/价--></div></div>
   </div>
   <div class="trial"><p>Try it free: the full handbook for Stratagem No. 1 is yours to download. Handbooks for No. 2 onward come only with the collection.</p><a class="btn red" href="/1/boyi-01-handbook.pdf">Download No. 1 handbook (free) <span class="arw">→</span></a></div>
 </div></section>
@@ -307,8 +365,7 @@ img{display:block;max-width:100%}
       <img class="icardimg" src="../assets/ill/05.jpg" alt="">
       <div class="no">05</div>
       <h3>Listen &amp; Write — Yoko&#x27;s own voice</h3>
-      <p>One audio track per stratagem, read in Mandarin by Yoko herself. Press play and write the four characters at the pace you hear — the same voice that reads the Chinese in the videos, slowed down to handwriting speed.</p>
-      <div class="aud"><audio controls preload="metadata" src="../assets/audio/13-01.mp3"></audio><p class="audnote">A real sample — 打 · 草 · 惊 · 蛇, from No.13</p></div>
+      <p>Yoko&#x27;s own pronunciation recordings, one set per stratagem. Each set is numbered to match the free pronunciation PDF of the same stratagem, and is read at four speeds so you can say it after her.</p>
       <span class="tag">Planned</span>
     </div>
   </div>
@@ -337,7 +394,7 @@ img{display:block;max-width:100%}
 <section class="inside"><div class="wrap">
   <div class="sechead">
     <div class="kicker">The covers</div>
-    <h2>Twelve out of thirty-six.</h2>
+    <h2><!--含:n4-->Thirty-six<!--/含--> out of thirty-six.</h2>
     <p>Every stratagem gets its own cover. Each one is drawn and typeset as it is published.</p>
   </div>
   <div class="wall">
@@ -353,12 +410,12 @@ img{display:block;max-width:100%}
     <figure class="cv"><img src="../assets/covers/10.jpg" alt="Cover of No.10 笑里藏刀"><span class="cvno">No.10 · 笑里藏刀</span></figure>
     <figure class="cv"><img src="../assets/covers/11.jpg" alt="Cover of No.11 李代桃僵"><span class="cvno">No.11 · 李代桃僵</span></figure>
     <figure class="cv"><img src="../assets/covers/12.jpg" alt="Cover of No.12 顺手牵羊"><span class="cvno">No.12 · 顺手牵羊</span></figure>
-    <div class="cv soon">No.13<br>Coming soon</div>
-    <div class="cv soon">No.14<br>Coming soon</div>
-    <div class="cv soon">No.15<br>Coming soon</div>
-    <div class="cv soon">No.16<br>Coming soon</div>
-    <div class="cv soon">No.17<br>Coming soon</div>
-    <div class="cv soon">No.18<br>Coming soon</div>
+    <figure class="cv"><img src="../../图/第13计-封面.webp" alt="Cover of No.13 打草惊蛇"><span class="cvno">No.13 · 打草惊蛇</span></figure>
+    <figure class="cv"><img src="../../图/第14计-封面.webp" alt="Cover of No.14 借尸还魂"><span class="cvno">No.14 · 借尸还魂</span></figure>
+    <figure class="cv"><img src="../../图/第15计-封面.webp" alt="Cover of No.15 调虎离山"><span class="cvno">No.15 · 调虎离山</span></figure>
+    <figure class="cv"><img src="../../图/第16计-封面.webp" alt="Cover of No.16 欲擒故纵"><span class="cvno">No.16 · 欲擒故纵</span></figure>
+    <figure class="cv"><img src="../../图/第17计-封面.webp" alt="Cover of No.17 抛砖引玉"><span class="cvno">No.17 · 抛砖引玉</span></figure>
+    <figure class="cv"><img src="../../图/第18计-封面.webp" alt="Cover of No.18 擒贼擒王"><span class="cvno">No.18 · 擒贼擒王</span></figure>
     <div class="cv soon">No.19<br>Coming soon</div>
     <div class="cv soon">No.20<br>Coming soon</div>
     <div class="cv soon">No.21<br>Coming soon</div>
@@ -388,7 +445,7 @@ img{display:block;max-width:100%}
   <div class="faqbox">
     <details open>
       <summary>How does the early-bird price work?</summary>
-      <div class="ans">The collection is being finished one stratagem at a time. While it is in progress the price is $12. The regular price is $19.</div>
+      <div class="ans"><!--价:page36_faq_en-->The collection is being finished one stratagem at a time. The early-bird price is $12 until Nov 30, 2026. From Dec 1, 2026 the price is $19.<!--/价--></div>
     </details>
     <details>
       <summary>What happens when a new stratagem comes out?</summary>
@@ -400,7 +457,7 @@ img{display:block;max-width:100%}
     </details>
     <details>
       <summary>How do I pay?</summary>
-      <div class="ans">Not yet. Payments are not open — this page is a preview. Nothing is charged, and no email address or card details are collected.</div>
+      <div class="ans">By card, through Stripe’s secure checkout. You pay once, and your receipt email carries the private download page for your collection.</div>
     </details>
     <details>
       <summary>How do I get the audio?</summary>
@@ -408,25 +465,27 @@ img{display:block;max-width:100%}
     </details>
     <details>
       <summary>Can I get a refund?</summary>
-      <div class="ans">Yes — within 7 days of purchase, for any reason. Email us and we&#x27;ll refund in full.</div>
+      <div class="ans">Yes — within 7 days of purchase, for any reason. Email boyi@snsaladdin.com and we&#x27;ll refund in full.</div>
     </details>
     <details>
       <summary>Which stratagems are already out?</summary>
-      <div class="ans">Twelve, from #1 瞒天过海 to #12 顺手牵羊. The free pages are on the main site, one per stratagem.</div>
+      <div class="ans"><!--含:n5-->Thirty-six of the thirty-six are in the book now.<!--/含--> The free pages are on the main site, one per stratagem.</div>
     </details>
   </div>
 </div></section>
 
 <section class="endcta"><div class="wrap">
   <h2>All 36, for the price of one lunch.</h2>
-  <p>$12 while the collection is in progress. $19 when it is done.</p>
-  <a class="btn red" href="#">Coming soon <span class="arw">→</span></a><!-- 占位：同上 -->
-  <div class="legal"><a href="#">Legal notice · 特定商取引法に基づく表記</a><span class="legalnote">Refunds · within 7 days of purchase, for any reason · 返品特約</span></div><!-- 占位：法律表记页还没做；退款只写「7 天内可退」这一句，不写附加条件 -->
+  <p><!--价:page36_foot_en-->Early bird $12 until Nov 30, 2026. $19 from Dec 1, 2026.<!--/价--></p>
+  <a class="btn red" href="https://buy.stripe.com/4gM00j7sccig8MXaWv2wU05">Buy now — $12 early bird <span class="arw">→</span></a>
+  <div class="legal"><a href="/store/legal/">Legal notice · 特定商取引法に基づく表記</a><span class="legalnote">Refunds · within 7 days of purchase, for any reason · 返品特約</span></div><!-- 卡645：法律表记页 /store/legal/ 已建（卖方信息照 ai-knowledge-base/tokushoho.html；价格/引渡/退款/動作環境 四处按老丁改）；退款只写「7 天内可退」 -->
 </div></section>
 
 <div class="foot"><div class="wrap"><div class="row">
   <span>© 2026 博弈 Bóyì · The 36 Stratagems with Yoko</span>
   <span>Free PDFs stay free</span>
+  <span><a href="https://www.instagram.com/boyi.36ji/" target="_blank" rel="noopener">Instagram</a></span>
+  <span><a href="https://www.tiktok.com/@yoko.boyi" target="_blank" rel="noopener">TikTok</a></span>
 </div></div></div>
 
 <script>
