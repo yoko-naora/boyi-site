@@ -1,0 +1,52 @@
+# 博弈 Bóyì · The 36 Stratagems with Yoko
+
+> Short English videos on the 36 Chinese Stratagems (三十六计). Each episode tells the true historical story behind one stratagem, shows how the same move shows up in modern work and family life, and teaches its four Chinese characters. Free practice sheets for every stratagem.
+
+## Stratagems
+
+- [#1 瞒天过海 · Hide it from heaven, cross the sea](https://boyi.snsaladdin.com/1/): In 589 AD, a Sui general named He Ruobi didn't hide his army.
+- [#2 围魏救赵 · Besiege Wei to rescue Zhao](https://boyi.snsaladdin.com/2/): 354 BC.
+- [#3 借刀杀人 · Borrow a knife to kill a person](https://boyi.snsaladdin.com/3/): Over 2,700 years ago, the ruler of Zheng wanted the land of his small neighbor, Kuai.
+- [#4 以逸待劳 · Wait at ease for the tired enemy](https://boyi.snsaladdin.com/4/): More than 2,200 years ago, General Li Mu held Zhao's northern border.
+- [#5 趁火打劫 · Loot a burning house](https://boyi.snsaladdin.com/5/): More than 2,500 years ago, King Fuchai of Wu marched his best soldiers north to a meeting of lords, to be named first among them.
+- [#6 声东击西 · Make noise in the east, strike in the west](https://boyi.snsaladdin.com/6/): Han Xin was ordered to cross a river and bring back a rebel king.
+- [#7 无中生有 · Create something from nothing](https://boyi.snsaladdin.com/7/): A city was under siege and had run out of arrows.
+- [#8 暗渡陈仓 · Cross at Chencang in the dark](https://boyi.snsaladdin.com/8/): There is a saying in Chinese: build the road in the open, cross in secret.
+- [#9 隔岸观火 · Watch the fire from the other bank](https://boyi.snsaladdin.com/9/): Two brothers had lost a war and a kingdom, and ran east with a few thousand riders.
+- [#10 笑里藏刀 · Sweet on the Outside](https://boyi.snsaladdin.com/10/): Your first month at your in-laws' place.
+- [#11 李代桃僵 · A plum takes the peach's fall](https://boyi.snsaladdin.com/11/): A famous Chinese play: The Orphan of Zhao.
+- [#12 顺手牵羊 · Take the sheep in passing](https://boyi.snsaladdin.com/12/): Tuesday, four in the afternoon.
+- [#13 打草惊蛇 · Poke the grass and the snake moves](https://boyi.snsaladdin.com/13/): Three quotes for one bathroom, all within five hundred of each other.
+- [#14 借尸还魂 · Same Name, Different Hands](https://boyi.snsaladdin.com/14/): You buy a box of biscuits for the name on it.
+- [#15 调虎离山 · Never Leave Your Home Turf](https://boyi.snsaladdin.com/15/): Monday morning.
+- [#16 欲擒故纵 · Silence Is Not Permission](https://boyi.snsaladdin.com/16/): Zuo Zhuan says this happened over two thousand seven hundred years ago.
+- [#17 抛砖引玉 · There Are Always Strings Attached](https://boyi.snsaladdin.com/17/): Zuo Zhuan says this happened over two thousand seven hundred years ago.
+- [#18 擒贼擒王 · Find the Real Decision Maker](https://boyi.snsaladdin.com/18/): Records of the Three Kingdoms says this happened more than eighteen hundred years ago.
+- [#19 釜底抽薪 · One Supplier Away From Ruin](https://boyi.snsaladdin.com/19/): Records of the Three Kingdoms says this happened more than eighteen hundred years ago.
+- [#20 混水摸鱼 · One Rumor Can Empty Your Office](https://boyi.snsaladdin.com/20/): The old histories say this happened more than sixteen hundred years ago.
+- [#21 金蝉脱壳 · Your Partner Left Months Ago](https://boyi.snsaladdin.com/21/): The old book Shiji says this happened more than twenty-two hundred years ago.
+- [#22 关门捉贼 · The Door Closed Behind You](https://boyi.snsaladdin.com/22/): The old book Shiji records this battle, more than twenty-three hundred years ago.
+- [#23 远交近攻 · They Bought Your Neighbor First](https://boyi.snsaladdin.com/23/): The old book Shiji says this happened more than twenty-two hundred years ago.
+- [#24 假道伐虢 · You Lent Them the Road](https://boyi.snsaladdin.com/24/): The old books Shiji and the Zuo Commentary say this happened more than twenty-six hundred years ago.
+- [#25 偷梁换柱 · Sign Tonight and You’re Out](https://boyi.snsaladdin.com/25/): The old account behind this stratagem comes from the Records of the Grand Historian.
+- [#26 指桑骂槐 · Her Firing Was Aimed at You](https://boyi.snsaladdin.com/26/): The old account behind this stratagem is quoted in a later commentary on the Records of the Three Kingdoms.
+- [#27 假痴不癫 · Look Too Ambitious and You’re Next](https://boyi.snsaladdin.com/27/): The old account behind this stratagem is recorded in the Records of the Three Kingdoms, with a later commentary adding more.
+- [#28 上屋抽梯 · Your Seat Is the Danger](https://boyi.snsaladdin.com/28/): The old account behind this stratagem is recorded in the Records of the Three Kingdoms.
+- [#29 树上开花 · One Thick Binder Could Close Your Shop](https://boyi.snsaladdin.com/29/): The old account behind this stratagem is in the Records of the Three Kingdoms.
+- [#30 反客为主 · You Invited Your Replacement](https://boyi.snsaladdin.com/30/): The old account behind this stratagem is in the Records of the Three Kingdoms.
+- [#31 美人计 · Your Best Friend May Be a Vendor](https://boyi.snsaladdin.com/31/): This stratagem's famous story is not in the Records of the Grand Historian.
+- [#32 空城计 · One Letter Could Sink Your Company](https://boyi.snsaladdin.com/32/): The famous scene, a strategist playing a zither on a city wall, comes from the novel Romance of the Three Kingdoms, not from the histories.
+- [#33 反间计 · One Story Can Cost You Your Best Person](https://boyi.snsaladdin.com/33/): Yan's general Yue Yi has spent years winning city after city in Qi, until only two remain.
+- [#34 苦肉计 · Their Surrender Will Cost You](https://boyi.snsaladdin.com/34/): Before the Battle of Red Cliffs, the general Huang Gai tells his commander that the enemy is too many to outlast, but its ships are chained together and can be burned.
+- [#35 连环计 · Even the Untouchable Can Be Gone by Monday](https://boyi.snsaladdin.com/35/): Dong Zhuo holds the court and cannot be opposed openly, so the minister Wang Yun first treats Lü Bu, Dong Zhuo's guard, well.
+- [#36 走为上 · The Dinner Has No Exit](https://boyi.snsaladdin.com/36/): Two rebel leaders camp near Hongmen.
+
+## Book
+
+- [The complete 36 Stratagems book + audio](https://boyi.snsaladdin.com/store/36/): all 36 stories in one PDF, with Yoko's Chinese narration audio for every stratagem. Price: US$12.00 (early bird until 2026-11-30).
+
+## Elsewhere
+
+- YouTube: https://www.youtube.com/@yoko-boyi
+- TikTok: https://www.tiktok.com/@yoko.boyi
+- Instagram: https://www.instagram.com/boyi.36ji/
